@@ -1,10 +1,21 @@
-{host, ...}: let
+{ host, ... }:
+let
   inherit (import ../../hosts/${host}/variables.nix) gitUsername gitEmail;
-in {
+in
+{
   programs.git = {
     enable = true;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+
+    delta = {
+      enable = true;
+      options = {
+        line-numbers = true;
+        navigate = true;
+        hyperlinks = true;
+      };
+    };
 
     extraConfig = {
       # FOSS-friendly settings
@@ -15,6 +26,7 @@ in {
       log.date = "iso"; # ISO 8601 date format
       # Conflict resolution style for readable diffs
       merge.conflictStyle = "diff3";
+      diff.colorMoved = "default";
     };
     # Optional: FOSS-friendly Git aliases
     aliases = {

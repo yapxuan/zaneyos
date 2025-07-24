@@ -1,4 +1,5 @@
-{profile, ...}: {
+{ profile, ... }:
+{
   # Services to start
   services = {
     libinput.enable = true; # Input Handling
@@ -10,10 +11,7 @@
     gnome.gnome-keyring.enable = true;
 
     smartd = {
-      enable =
-        if profile == "vm"
-        then false
-        else true;
+      enable = if profile == "vm" then false else true;
       autodetect = true;
     };
     pipewire = {
@@ -21,6 +19,15 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+    };
+  };
+
+  systemd.services.set-battery-threshold = {
+    description = "Set battery charge limit to 80%";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/run/current-system/sw/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
     };
   };
 }

@@ -3,7 +3,8 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -17,13 +18,14 @@
         "usbhid"
         "sd_mod"
       ];
-      kernelModules = [];
+      kernelModules = [ ];
       luks.devices = {
-        "luks-8941ac93-f043-46d1-b128-37d5e846303f".device = "/dev/disk/by-uuid/8941ac93-f043-46d1-b128-37d5e846303f";
+        "luks-8941ac93-f043-46d1-b128-37d5e846303f".device =
+          "/dev/disk/by-uuid/8941ac93-f043-46d1-b128-37d5e846303f";
       };
     };
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
   };
   fileSystems = {
     "/" = {
@@ -52,7 +54,7 @@
       ];
     };
   };
-  swapDevices = [];
+  swapDevices = [ ];
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

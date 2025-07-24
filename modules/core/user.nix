@@ -5,17 +5,26 @@
   host,
   profile,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/variables.nix) gitUsername;
-in {
-  imports = [inputs.home-manager.nixosModules.home-manager];
+in
+{
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = false;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs username host profile;};
+    extraSpecialArgs = {
+      inherit
+        inputs
+        username
+        host
+        profile
+        ;
+    };
     users.${username} = {
-      imports = [./../home];
+      imports = [ ./../home ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
@@ -39,5 +48,5 @@ in {
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
-  nix.settings.allowed-users = ["${username}"];
+  nix.settings.allowed-users = [ "${username}" ];
 }

@@ -2,16 +2,24 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
   boot = {
-    initrd.availableKernelModules = ["ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod"];
-    initrd.kernelModules = [];
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+    initrd.availableKernelModules = [
+      "ata_piix"
+      "uhci_hcd"
+      "virtio_pci"
+      "virtio_scsi"
+      "sd_mod"
+      "sr_mod"
+    ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
   };
 
   fileSystems = {
@@ -22,16 +30,25 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/6EA3-CBC7";
       fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
     };
     "/mnt/nas" = {
       device = "192.168.40.11:/volume1/DiskStation54TB";
       fsType = "nfs";
-      options = ["rw" "bg" "soft" "tcp" "_netdev"];
+      options = [
+        "rw"
+        "bg"
+        "soft"
+        "tcp"
+        "_netdev"
+      ];
     };
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   security.sudo.wheelNeedsPassword = false;
 

@@ -1,4 +1,5 @@
-{username, ...}: {
+{ username, ... }:
+{
   home.file = {
     ".config/swappy/config".text = ''
       [Default]
