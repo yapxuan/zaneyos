@@ -2,6 +2,7 @@
   host,
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -36,7 +37,8 @@ in
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = null;
+    portalPackage = null;
     systemd = {
       enable = true;
       enableXdgAutostart = true;
@@ -52,12 +54,11 @@ in
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start hyprpolkitagent"
-        "killall -q swww;sleep .5 && swww init"
+        "swww kill;sleep .5 && swww-daemon &"
         "killall -q waybar;sleep .5 && waybar"
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "pypr &"
-        "swww-daemon &"
         "sleep 1.5 && swww img ${stylixImage}"
       ];
 
@@ -171,7 +172,7 @@ in
 
     extraConfig = "
       monitor=,preferred,auto,auto
-      monitor=Virtual-1,1920x1080@60,auto,1
+      monitor=Virtual-1,1920x1200@60,auto,1
       ${
             extraMonitorSettings
           }

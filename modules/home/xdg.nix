@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, ... }:
 {
   xdg = {
     enable = true;
@@ -8,8 +8,8 @@
     };
     portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-      configPackages = [ pkgs.hyprland ];
+      extraPortals = [ inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland ];
+      configPackages = [ inputs.hyprland.packages.x86_64-linux.hyprland ];
     };
   };
 }

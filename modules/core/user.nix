@@ -4,6 +4,7 @@
   username,
   host,
   profile,
+  lib,
   ...
 }:
 let
@@ -25,6 +26,7 @@ in
     };
     users.${username} = {
       imports = [ ./../home ];
+      xdg.portal.enable = lib.mkForce true; # temporary fix TODO
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

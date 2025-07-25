@@ -13,7 +13,12 @@
     firefox.enable = true; # Firefox is not installed by default
     dconf.enable = true;
     seahorse.enable = true;
-    hyprland.enable = true; # create desktop file and depedencies if you switch to GUI login MGR
+    hyprland = {
+      enable = true; # create desktop file and depedencies if you switch to GUI login MGR
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
     hyprlock.enable = true; # resolve pam issue https://gitlab.com/Zaney/zaneyos/-/issues/164
     fuse.userAllowOther = true;
     mtr.enable = true;
@@ -25,6 +30,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
     # amfora # Fancy Terminal Browser For Gemini Protocol
@@ -87,6 +93,7 @@
     rustfinity
     socat # Needed For Screenshots
     sox # audio support for FFMPEG
+    inputs.swww.packages.${pkgs.system}.swww
     unrar # Tool For Handling .rar Files
     unzip # Tool For Handling .zip Files
     usbutils # Good Tools For USB Devices
@@ -96,7 +103,7 @@
     wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
     zapzap # Alternative of Whatsapp
-    (pkgs-25_05.animeko)
+    pkgs-25_05.animeko
     # inputs.helix.packages."${pkgs.system}".helix
     (prismlauncher.override {
       # Add binary required by some mod

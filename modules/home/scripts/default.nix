@@ -2,6 +2,7 @@
   pkgs,
   username,
   profile,
+  inputs,
   ...
 }:
 {
@@ -14,6 +15,7 @@
     (import ./wallsetter.nix {
       inherit pkgs;
       inherit username;
+      inherit inputs;
     })
     (import ./web-search.nix { inherit pkgs; })
     (import ./rofi-launcher.nix { inherit pkgs; })

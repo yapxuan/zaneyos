@@ -15,6 +15,8 @@
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    swww.url = "github:LGFae/swww";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -22,6 +24,8 @@
       nixpkgs,
       # helix,
       nh,
+      hyprland,
+      swww,
       ...
     }@inputs:
     let
