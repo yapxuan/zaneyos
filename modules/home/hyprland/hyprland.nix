@@ -57,6 +57,7 @@ in
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "pypr &"
+        "swww-daemon &"
         "sleep 1.5 && swww img ${stylixImage}"
       ];
 
@@ -156,8 +157,8 @@ in
       };
 
       render = {
-        explicit_sync = 1; # Change to 1 to disable
-        explicit_sync_kms = 1;
+        #explicit_sync = 1; # Change to 1 to disable
+        #explicit_sync_kms = 1;
         direct_scanout = 0;
       };
 

@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }:
 {
@@ -18,6 +19,7 @@
       enableLuaLoader = true;
       preventJunkFiles = true;
       options = {
+        fillchars = "eob: "; # no ~ after EOF
         tabstop = 4;
         shiftwidth = 2;
         wrap = false;
@@ -132,11 +134,11 @@
 
       telescope.enable = true;
 
-      spellcheck = {
-        enable = true;
-        languages = [ "en" ];
-        programmingWordlist.enable = true;
-      };
+      # spellcheck = {
+      #   enable = false;
+      #   languages = [ "en" ];
+      #   programmingWordlist.enable = false;
+      # };
 
       lsp = {
         formatOnSave = true;
@@ -146,14 +148,26 @@
         trouble.enable = true;
         lspSignature.enable = true;
         otter-nvim.enable = false;
-        nvim-docs-view.enable = false;
+        nvim-docs-view.enable = false; # view lsp doc like in vscode
       };
 
       languages = {
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
-        nix.enable = true;
+        nix = {
+          enable = true;
+          lsp = {
+            enable = true;
+            package = pkgs.nixd;
+            server = "nixd";
+          };
+          format = {
+            enable = true;
+            package = pkgs.nixfmt;
+            type = "nixfmt";
+          };
+        };
         clang.enable = true;
         zig.enable = true;
         python.enable = true;
@@ -167,13 +181,25 @@
         html.enable = true;
         lua.enable = true;
         css = {
-          enable = false;
+          enable = true;
           format.type = "prettierd";
         };
         typst.enable = true;
         rust = {
           enable = true;
           crates.enable = true;
+          lsp = {
+            enable = true;
+            opts = ''
+              ['rust-analyzer'] = {
+                cargo = {allFeature = true},
+                checkOnSave = true,
+                procMacro = {
+                  enable = true,
+                },
+              },
+            '';
+          };
         };
       };
       visuals = {
@@ -182,7 +208,14 @@
         cinnamon-nvim.enable = true;
         fidget-nvim.enable = true;
         highlight-undo.enable = true;
-        indent-blankline.enable = true;
+        indent-blankline = {
+          enable = true;
+          setupOpts = {
+            exclude = {
+              filetypes = [ "dashboard" ];
+            };
+          };
+        };
         rainbow-delimiters.enable = true;
       };
 
@@ -206,7 +239,10 @@
         gitsigns.codeActions.enable = false;
       };
       projects.project-nvim.enable = true;
-      dashboard.dashboard-nvim.enable = true;
+      dashboard.dashboard-nvim = {
+        enable = true;
+        # setupOpts.disable_move = true;
+      };
       filetree.neo-tree.enable = true;
       notify = {
         nvim-notify.enable = true;

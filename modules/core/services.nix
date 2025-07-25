@@ -23,11 +23,11 @@
   };
 
   systemd.services.set-battery-threshold = {
-    description = "Set battery charge limit to 80%";
+    description = "Set battery charge limit to 90%";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
+      ExecStart = "/run/current-system/sw/bin/bash -c 'echo 90 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
     };
   };
 }

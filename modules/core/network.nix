@@ -18,6 +18,7 @@
         59010
         59011
         8080
+        43000 # minecraft
       ];
       allowedUDPPorts = [
         59010

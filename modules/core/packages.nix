@@ -1,8 +1,10 @@
 {
   pkgs,
   pkgs-25_05,
+  inputs,
   ...
-}: {
+}:
+{
   programs = {
     neovim = {
       enable = true;
@@ -25,11 +27,15 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    amfora # Fancy Terminal Browser For Gemini Protocol
-    appimage-run # Needed For AppImage Support
+    # amfora # Fancy Terminal Browser For Gemini Protocol
+    # appimage-run # Needed For AppImage Support
     bottom # btop like util
     # brave # Brave Browser
     brightnessctl # For Screen Brightness Control
+    bash-language-server
+    cargo
+    clang
+    clippy
     cmatrix # Matrix Movie Effect In Terminal
     cowsay # Great Fun Terminal Program
     curlie
@@ -39,14 +45,14 @@
     eza # Beautiful ls Replacement
     fd
     ffmpeg # Terminal Video / Audio Editing
-    file-roller # Archive Manager
+    # file-roller # Archive Manager
     gdu # graphical disk usage
     # gedit # Simple Graphical Text Editor
-    gimp # Great Photo Editor
+    # gimp # Great Photo Editor
     glxinfo # Needed for inxi -G GPU info
-    gping # graphical ping
+    # gping # graphical ping
     greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
-    htop # Simple Terminal Based System Monitor
+    # htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     eog # For Image Viewing
     inxi # CLI System Information Tool
@@ -57,32 +63,44 @@
     lolcat # Add Colors To Your Terminal Command Output
     lshw # Detailed Hardware Information
     mpv # Incredible Video Player
-    ncdu # Disk Usage Analyzer With Ncurses Interface
+    # ncdu # Disk Usage Analyzer With Ncurses Interface
     nitch # small fetch util
-    nixfmt-rfc-style # Nix Formatter
+    nixfmt # Nix Formatter
+    nix-output-monitor
+    # nil
+    nixd
+    nvd
     onefetch # shows current build info and stats
     pavucontrol # For Editing Audio Levels & Devices
     pciutils # Collection Of Tools For Inspecting PCI Devices
-    picard # For Changing Music Metadata & Getting Cover Art
-    pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
+    # picard # For Changing Music Metadata & Getting Cover Art
+    # pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
+    python3Full
     qbittorrent
     # rhythmbox
     ripgrep # Improved Grep
+    rustc
+    rustfmt
+    rust-analyzer
+    rustlings
+    rustfinity
     socat # Needed For Screenshots
     sox # audio support for FFMPEG
     unrar # Tool For Handling .rar Files
     unzip # Tool For Handling .zip Files
     usbutils # Good Tools For USB Devices
-    v4l-utils # Used For Things Like OBS Virtual Camera
+    # v4l-utils # Used For Things Like OBS Virtual Camera
+    vscode-langservers-extracted
     waypaper # backup wallpaper GUI
     wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
     zapzap # Alternative of Whatsapp
     (pkgs-25_05.animeko)
+    # inputs.helix.packages."${pkgs.system}".helix
     (prismlauncher.override {
       # Add binary required by some mod
-      additionalPrograms = [ffmpeg];
+      additionalPrograms = [ ffmpeg ];
 
       # Change Java runtimes available to Prism Launcher
       jdks = [

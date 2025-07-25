@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    audacity
+    # audacity
     discord
-    nodejs
+    # nodejs
   ];
 }

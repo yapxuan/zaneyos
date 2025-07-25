@@ -3,7 +3,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.vscode = {
-    enable = true;
+    enable = false;
     profiles = {
       default = {
         extensions = with pkgs.vscode-extensions; [

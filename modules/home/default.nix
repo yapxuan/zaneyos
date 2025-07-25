@@ -19,6 +19,7 @@ in
     ./ghostty.nix
     ./git.nix
     ./gtk.nix
+    # ./helix.nix
     ./htop.nix
     ./hyprland
     ./kitty.nix

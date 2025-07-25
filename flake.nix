@@ -6,6 +6,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # helix.url = "github:helix-editor/helix/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-25_05.url = "github:NixOS/nixpkgs/nixos-25.05";
     nvf.url = "github:notashelf/nvf";
@@ -19,6 +20,7 @@
   outputs =
     {
       nixpkgs,
+      # helix,
       nh,
       ...
     }@inputs:
@@ -29,6 +31,7 @@
       username = "puiyq";
     in
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       nixosConfigurations = {
         amd = nixpkgs.lib.nixosSystem {
           inherit system;
