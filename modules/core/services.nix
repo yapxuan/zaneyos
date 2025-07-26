@@ -9,6 +9,7 @@
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
     gnome.gnome-keyring.enable = true;
+    power-profiles-daemon.enable = true;
 
     smartd = {
       enable = if profile == "vm" then false else true;

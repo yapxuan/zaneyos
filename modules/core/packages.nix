@@ -55,6 +55,7 @@
     gdu # graphical disk usage
     # gedit # Simple Graphical Text Editor
     # gimp # Great Photo Editor
+    glow
     glxinfo # Needed for inxi -G GPU info
     # gping # graphical ping
     greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
@@ -73,6 +74,7 @@
     nitch # small fetch util
     nixfmt # Nix Formatter
     nix-output-monitor
+    nixpkgs-review
     # nil
     nixd
     nvd
