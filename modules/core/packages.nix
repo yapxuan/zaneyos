@@ -105,7 +105,7 @@
     wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
     zapzap # Alternative of Whatsapp
-    pkgs-25_05.animeko
+    animeko
     # inputs.helix.packages."${pkgs.system}".helix
     (prismlauncher.override {
       # Add binary required by some mod
