@@ -33,6 +33,11 @@
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
+    libsecret
+    msmtp
+    isync
+    openssl
+    element-desktop
     # amfora # Fancy Terminal Browser For Gemini Protocol
     # appimage-run # Needed For AppImage Support
     bottom # btop like util

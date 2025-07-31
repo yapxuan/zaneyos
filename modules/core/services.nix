@@ -8,7 +8,9 @@
     openssh.enable = true; # Enable SSH
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
-    gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring = {
+      enable = true;
+    };
     power-profiles-daemon.enable = true;
 
     smartd = {

@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./email.nix
     ./amfora.nix
     ./bash.nix
     ./bashrc-personal.nix
@@ -11,6 +12,7 @@ in
     ./bottom.nix
     ./btop.nix
     ./cava.nix
+    ./direnv.nix
     ./emoji.nix
     ./eza.nix
     ./fastfetch

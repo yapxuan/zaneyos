@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   programs.tmux = {
-    enable = true;
+    enable = false;
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";
     prefix = "C-a";
