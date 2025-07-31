@@ -2,7 +2,6 @@
   host,
   config,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -176,6 +175,9 @@ in
       ${
             extraMonitorSettings
           }
+      xwayland {
+        force_zero_scaling = true
+      }
       # To enable blur on waybar uncomment the line below
       # Thanks to SchotjeChrisman
       # layerrule = blur,waybar
