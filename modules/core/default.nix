@@ -24,5 +24,6 @@
     ./virtualisation.nix
     ./xserver.nix
     inputs.stylix.nixosModules.stylix
+    inputs.chaotic.nixosModules.default
   ];
 }

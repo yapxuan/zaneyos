@@ -1,4 +1,4 @@
-{ profile, ... }:
+{ profile, pkgs, ... }:
 {
   # Services to start
   services = {
@@ -8,6 +8,11 @@
     openssh.enable = true; # Enable SSH
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
+    scx = {
+      enable = true; # by default uses scx_rustland scheduler
+      scheduler = "scx_rusty";
+      package = pkgs.scx_git.full;
+    };
     gnome.gnome-keyring = {
       enable = true;
     };

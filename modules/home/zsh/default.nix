@@ -9,6 +9,7 @@
     ./zshrc-personal.nix
   ];
 
+  home.shell.enableZshIntegration = true;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -69,6 +70,8 @@
       cat = "bat";
       man = "batman";
       curl = "curlie";
+      nix-shell = "nom-shell";
+      nix-build = "nom-build";
     };
   };
 }

@@ -2,20 +2,23 @@
   description = "ZaneyOS";
 
   inputs = {
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixpkgs-25_05.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nvf = {
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # helix.url = "github:helix-editor/helix/master";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-25_05.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/master";
     nh = {
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    swww.url = "github:LGFae/swww";
+    swww = {
+      url = "github:LGFae/swww";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
@@ -26,6 +29,7 @@
       nh,
       hyprland,
       swww,
+      chaotic,
       ...
     }@inputs:
     let
