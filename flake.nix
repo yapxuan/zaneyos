@@ -34,66 +34,25 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      host = "amd";
-      profile = "amd";
+      host = "nixos";
       username = "puiyq";
     in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       nixosConfigurations = {
-        amd = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;
             inherit username;
             inherit host;
-            inherit profile;
+            profile = "amd";
             pkgs-25_05 = import inputs.nixpkgs-25_05 {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
           };
           modules = [ ./profiles/amd ];
-        };
-        nvidia = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit host;
-            inherit profile;
-          };
-          modules = [ ./profiles/nvidia ];
-        };
-        nvidia-laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit host;
-            inherit profile;
-          };
-          modules = [ ./profiles/nvidia-laptop ];
-        };
-        intel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit host;
-            inherit profile;
-          };
-          modules = [ ./profiles/intel ];
-        };
-        vm = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit host;
-            inherit profile;
-          };
-          modules = [ ./profiles/vm ];
         };
       };
     };

@@ -49,8 +49,8 @@
     cargo
     clang
     clippy
-    cmatrix # Matrix Movie Effect In Terminal
-    cowsay # Great Fun Terminal Program
+    # cmatrix # Matrix Movie Effect In Terminal
+    # cowsay # Great Fun Terminal Program
     curlie
     docker-compose # Allows Controlling Docker From A Single File
     duf # Utility For Viewing Disk Usage In Terminal
@@ -69,30 +69,30 @@
     # htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     eog # For Image Viewing
-    inxi # CLI System Information Tool
+    # inxi # CLI System Information Tool
     jq
     killall # For Killing All Instances Of Programs
     libnotify # For Notifications
     lm_sensors # Used For Getting Hardware Temps
-    lolcat # Add Colors To Your Terminal Command Output
-    lshw # Detailed Hardware Information
+    # lolcat # Add Colors To Your Terminal Command Output
+    # lshw # Detailed Hardware Information
     mpv # Incredible Video Player
     # ncdu # Disk Usage Analyzer With Ncurses Interface
-    nitch # small fetch util
+    # nitch # small fetch util
     nixfmt # Nix Formatter
     nix-output-monitor
     nixpkgs-review
     # nil
     nixd
     nvd
-    onefetch # shows current build info and stats
+    # onefetch # shows current build info and stats
     pavucontrol # For Editing Audio Levels & Devices
     pciutils # Collection Of Tools For Inspecting PCI Devices
     # picard # For Changing Music Metadata & Getting Cover Art
     # pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
     python3Full
-    qbittorrent
+    # qbittorrent
     # rhythmbox
     ripgrep # Improved Grep
     rustc
@@ -107,7 +107,7 @@
     unzip # Tool For Handling .zip Files
     usbutils # Good Tools For USB Devices
     # v4l-utils # Used For Things Like OBS Virtual Camera
-    waypaper # backup wallpaper GUI
+    # waypaper # backup wallpaper GUI
     wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
     zapzap # Alternative of Whatsapp
