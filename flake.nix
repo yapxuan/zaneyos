@@ -34,7 +34,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      host = "nixos";
+      host = "amd";
       profile = "amd";
       username = "puiyq";
     in

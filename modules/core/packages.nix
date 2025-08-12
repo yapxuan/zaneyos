@@ -32,6 +32,7 @@
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
+    onlyoffice-desktopeditors
     varia
     quickgui
     quickemu

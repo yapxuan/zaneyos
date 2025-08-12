@@ -1,8 +1,13 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-rc.cachyOverride { mArch = "ZEN4"; };
+    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "ZEN4"; };
 
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
