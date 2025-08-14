@@ -29,15 +29,15 @@
     };
   };
 
-  nixpkgs.config = {
-allowUnfree = true;
-    overlays = [
-              (finalAttrs: {
-                # Override rust-analyzer with the one from pkgs-master
-                rust-analyzer = pkgs-master.rust-analyzer;
-              })
-            ];
-};
+  nixpkgs = {
+    config.allowUnfree = true;
+    #overlays = [
+    #  (final: prev: {
+    #    rust-analyzer = pkgs-master.rust-analyzer;
+    #    rust-analyzer-unwrapped = pkgs-master.rust-analyzer-unwrapped;
+    #  })
+    #];
+  };
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
@@ -106,7 +106,7 @@ allowUnfree = true;
     ripgrep # Improved Grep
     rustc
     rustfmt
-    rust-analyzer
+    #    rust-analyzer
     rustlings
     rustfinity
     socat # Needed For Screenshots
