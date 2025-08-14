@@ -6,6 +6,7 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
       gamescopeSession.enable = true;
+      protontricks.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 

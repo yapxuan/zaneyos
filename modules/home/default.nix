@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./packages.nix
     ./nix-index.nix
     ./email.nix
     ./amfora.nix
