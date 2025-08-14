@@ -185,22 +185,22 @@
           format.type = "prettierd";
         };
         typst.enable = true;
-        rust = {
-          enable = true;
-          crates.enable = true;
-          lsp = {
-            enable = true;
-            opts = ''
-              ['rust-analyzer'] = {
-                cargo = {allFeature = true},
-                checkOnSave = true,
-                procMacro = {
-                  enable = true,
-                },
-              },
-            '';
-          };
-        };
+        #rust = {
+        #  enable = true;
+        #  crates.enable = true;
+        #  lsp = {
+        #    enable = true;
+        #    opts = ''
+        #      ['rust-analyzer'] = {
+        #        cargo = {allFeature = true},
+        #        checkOnSave = true,
+        #        procMacro = {
+        #          enable = true,
+        #        },
+        #      },
+        #    '';
+        #  };
+        #};
       };
       visuals = {
         nvim-web-devicons.enable = true;
