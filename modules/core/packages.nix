@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-master,
   inputs,
   ...
 }:
@@ -28,7 +29,15 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+allowUnfree = true;
+    overlays = [
+              (finalAttrs: {
+                # Override rust-analyzer with the one from pkgs-master
+                rust-analyzer = pkgs-master.rust-analyzer;
+              })
+            ];
+};
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
