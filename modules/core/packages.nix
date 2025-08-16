@@ -1,11 +1,12 @@
 {
   pkgs,
-  pkgs-master,
   inputs,
   ...
 }:
 {
   programs = {
+    partition-manager.enable = true;
+    zsh.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -31,20 +32,22 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    #overlays = [
-    #  (final: prev: {
-    #    rust-analyzer = pkgs-master.rust-analyzer;
-    #    rust-analyzer-unwrapped = pkgs-master.rust-analyzer-unwrapped;
-    #  })
-    #];
+    overlays = [
+      (import ../../overlay)
+    ];
   };
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
+    #inputs.quickemu.packages.${pkgs.system}.quickemu # waiting for staging merge
+    adwaita-icon-theme
+    ntfs3g
+    libsecret
+    sbctl
+    nur.repos.ataraxiasjel.waydroid-script
+    waydroid-helper
     onlyoffice-desktopeditors
     varia
-    quickgui
-    quickemu
     winetricks
     wineWowPackages.stagingFull
     gnome-software
@@ -77,7 +80,7 @@
     tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     # htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
-    eog # For Image Viewing
+    loupe # For Image Viewing
     # inxi # CLI System Information Tool
     jq
     killall # For Killing All Instances Of Programs
@@ -106,9 +109,7 @@
     ripgrep # Improved Grep
     rustc
     rustfmt
-    #    rust-analyzer
-    rustlings
-    rustfinity
+    rust-analyzer
     socat # Needed For Screenshots
     sox # audio support for FFMPEG
     inputs.swww.packages.${pkgs.system}.swww

@@ -11,6 +11,7 @@
     };
     docker.enable = false;
     podman.enable = true;
+    waydroid.enable = true;
   };
   programs = {
     virt-manager.enable = true;
@@ -20,4 +21,5 @@
   ];
   virtualisation.spiceUSBRedirection.enable = true;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
+
 }

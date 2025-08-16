@@ -5,7 +5,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-25_05.url = "github:NixOS/nixpkgs/nixos-25.05";
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +20,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    quickemu = {
+      url = "github:quickemu-project/quickemu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +37,8 @@
       hyprland,
       swww,
       chaotic,
+      nur,
+      quickemu,
       ...
     }@inputs:
     let
@@ -46,10 +56,11 @@
             inherit username;
             inherit host;
             profile = "amd";
-            pkgs-master = import inputs.nixpkgs-master {
+            pkgs-25_05 = import inputs.nixpkgs-25_05 {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
+
           };
           modules = [ ./profiles/amd ];
         };

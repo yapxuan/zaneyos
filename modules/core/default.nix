@@ -25,5 +25,6 @@
     ./xserver.nix
     inputs.stylix.nixosModules.stylix
     inputs.chaotic.nixosModules.default
+    inputs.nur.modules.nixos.default
   ];
 }
