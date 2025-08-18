@@ -40,6 +40,7 @@
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
+    cryptsetup
     btrfs-assistant
     #inputs.quickemu.packages.${pkgs.system}.quickemu # waiting for staging merge
     adwaita-icon-theme
