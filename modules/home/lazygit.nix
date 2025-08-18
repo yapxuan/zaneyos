@@ -13,7 +13,10 @@ in
       promptToReturnFromSubprocess = false;
       update.method = "never";
       git = {
-        commit.signOff = true;
+        commit = {
+          sign = true;
+          signOff = true;
+        };
         parseEmoji = true;
       };
       gui = {

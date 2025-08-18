@@ -1,12 +1,25 @@
-{ host, ... }:
+{ host, pkgs, ... }:
 let
   inherit (import ../../hosts/${host}/variables.nix) gitUsername gitEmail;
 in
 {
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+    signing = {
+      format = "openpgp";
+      key = "614620783D8AACD5AD8600BCB1FA1A8B3AEC54FD";
+      signByDefault = true;
+      signer = "${pkgs.gnupg}/bin/gpg";
+    };
+    ignores = [
+      ".envrc"
+      ".direnv"
+      "result"
+      ".Trash-1000"
+    ];
 
     delta = {
       enable = true;
@@ -18,15 +31,22 @@ in
     };
 
     extraConfig = {
+      credential.helper = "libsecret";
       # FOSS-friendly settings
       push.default = "simple"; # Match modern push behavior
-      credential.helper = "cache --timeout=7200";
       init.defaultBranch = "main"; # Set default new branches to 'main'
       log.decorate = "full"; # Show branch/tag info in git log
       log.date = "iso"; # ISO 8601 date format
       # Conflict resolution style for readable diffs
       merge.conflictStyle = "diff3";
       diff.colorMoved = "default";
+      sendemail = {
+        smtpserver = "smtp.gmail.com";
+        smtpserverport = "587";
+        smtpencryption = "tls";
+        smtpuser = "puiyongqing@gmail.com";
+        smtppass.suppresscc = "all"; # don't automatically cc anyone (for testing)
+      };
     };
     # Optional: FOSS-friendly Git aliases
     aliases = {

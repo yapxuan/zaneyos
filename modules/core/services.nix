@@ -1,7 +1,12 @@
-{ profile, pkgs, ... }:
+{ pkgs, ... }:
 {
   # Services to start
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+    };
+    speechd.enable = false;
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     gvfs.enable = true; # For Mounting USB & More
@@ -17,9 +22,9 @@
       enable = true;
     };
     power-profiles-daemon.enable = true;
-
+    envfs.enable = true;
     smartd = {
-      enable = if profile == "vm" then false else true;
+      enable = true;
       autodetect = true;
     };
     pipewire = {
