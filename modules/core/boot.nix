@@ -1,13 +1,15 @@
 {
   pkgs,
-  lib,
   config,
   ...
 }:
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "ZEN4"; };
+    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride {
+      mArch = "ZEN4";
+      useLTO = "full";
+    };
 
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
@@ -17,6 +19,7 @@
     loader.limine = {
       enable = true;
       efiSupport = true;
+      maxGenerations = 10;
       style.wallpapers = [ pkgs.nixos-artwork.wallpapers.simple-dark-gray-bootloader.gnomeFilePath ];
       extraEntries = ''
         /Windows

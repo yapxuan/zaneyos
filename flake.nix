@@ -20,6 +20,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    quickemu = {
+      url = "github:quickemu-project/quickemu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +37,8 @@
       hyprland,
       swww,
       chaotic,
+      nur,
+      quickemu,
       ...
     }@inputs:
     let
@@ -50,6 +60,7 @@
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
+
           };
           modules = [ ./profiles/amd ];
         };

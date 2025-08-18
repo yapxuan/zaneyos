@@ -661,6 +661,11 @@
         run = "plugin smart-enter";
         desc = "Enter the child directory, or open the file";
       }
+      {
+        on = "M";
+        run = "plugin mount";
+        desc = "disk mount, unmount, and eject features";
+      }
     ];
   };
   tasks = {
