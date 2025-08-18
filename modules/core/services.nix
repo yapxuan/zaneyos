@@ -2,6 +2,10 @@
 {
   # Services to start
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+    };
     speechd.enable = false;
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer

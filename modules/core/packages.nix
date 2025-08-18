@@ -39,13 +39,14 @@
   nix.package = pkgs.nixVersions.git;
 
   environment.systemPackages = with pkgs; [
+    btrfs-assistant
     #inputs.quickemu.packages.${pkgs.system}.quickemu # waiting for staging merge
     adwaita-icon-theme
     ntfs3g
     libsecret
     sbctl
-    nur.repos.ataraxiasjel.waydroid-script
-    waydroid-helper
+    #nur.repos.ataraxiasjel.waydroid-script
+    #waydroid-helper
     onlyoffice-desktopeditors
     varia
     winetricks

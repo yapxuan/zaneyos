@@ -29,7 +29,7 @@ in
     ./kitty.nix
     ./lazygit.nix
     ./nvf.nix
-    ./obs-studio.nix
+    #./obs-studio.nix
     ./rofi
     ./qt.nix
     ./scripts

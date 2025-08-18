@@ -8,6 +8,12 @@ in
     package = pkgs.gitFull;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+    ignores = [
+      ".envrc"
+      ".direnv"
+      "result"
+      ".Trash-1000"
+    ];
 
     delta = {
       enable = true;

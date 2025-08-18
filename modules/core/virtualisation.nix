@@ -10,8 +10,8 @@
       };
     };
     docker.enable = false;
-    podman.enable = true;
-    waydroid.enable = true;
+    #podman.enable = true;
+    #waydroid.enable = true;
   };
   programs = {
     virt-manager.enable = true;
