@@ -728,7 +728,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-25_05": {
+    "nixpkgs-master": {
       "locked": {
         "lastModified": 1755274400,
         "narHash": "sha256-rTInmnp/xYrfcMZyFMH3kc8oko5zYfxsowaLv1LVobY=",
@@ -739,7 +739,7 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.05",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }
