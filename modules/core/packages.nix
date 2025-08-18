@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-master,
+  #pkgs-master,
   inputs,
   ...
 }:

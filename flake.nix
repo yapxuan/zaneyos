@@ -5,7 +5,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    #nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,10 +56,10 @@
             inherit username;
             inherit host;
             profile = "amd";
-            pkgs-master = import inputs.nixpkgs-master {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
+            #pkgs-master = import inputs.nixpkgs-master {
+            #  system = "x86_64-linux";
+            #  config.allowUnfree = true;
+            #};
 
           };
           modules = [ ./profiles/amd ];

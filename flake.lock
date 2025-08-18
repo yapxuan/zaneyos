@@ -359,11 +359,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1755442500,
-        "narHash": "sha256-RHK4H6SWzkAtW/5WBHsyugaXJX25yr5y7FAZznxcBJs=",
+        "lastModified": 1755491080,
+        "narHash": "sha256-ib1Xi13NEalrFqQAHceRsb+6aIPANFuQq80SS/bY10M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d2ffdedfc39c591367b1ddf22b4ce107f029dcc3",
+        "rev": "f8af2cbe386f9b96dd9efa57ab15a09377f38f4d",
         "type": "github"
       },
       "original": {
@@ -676,11 +676,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755373271,
-        "narHash": "sha256-/BwWjGs8Uc+jB7sofZJVgZYtw5/7BMKfBwNN7VzXVAM=",
+        "lastModified": 1755510252,
+        "narHash": "sha256-IPwAGaR9LO4LasxIFPqOTmIfliDsnzWVgzsaIekzRG4=",
         "owner": "nix-community",
         "repo": "nh",
-        "rev": "8d17f68b4354cdaaf25b41cd83b2cc1b0c16b413",
+        "rev": "8d690296fb3b898da565b33455a4227aed8a3133",
         "type": "github"
       },
       "original": {
@@ -724,22 +724,6 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1755274400,
-        "narHash": "sha256-rTInmnp/xYrfcMZyFMH3kc8oko5zYfxsowaLv1LVobY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ad7196ae55c295f53a7d1ec39e4a06d922f3b899",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -816,11 +800,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755476870,
-        "narHash": "sha256-VktLRbdxqIMMRaA+cYyCqviFfYJ9MB77INxPWX3d12A=",
+        "lastModified": 1755519143,
+        "narHash": "sha256-+kGhpDIPxJmEK9ADEmRmC19AkDbq6UUNoJ6zJJjSiuA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ba8a68a07b1cca8063b0473db7274c6e88ca5d53",
+        "rev": "2b8086c757b6ee16eebafd0f18d0a5b2eb07e01f",
         "type": "github"
       },
       "original": {
@@ -929,7 +913,6 @@
         "hyprland": "hyprland",
         "nh": "nh",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-25_05": "nixpkgs-25_05",
         "nur": "nur",
         "nvf": "nvf",
         "quickemu": "quickemu",
