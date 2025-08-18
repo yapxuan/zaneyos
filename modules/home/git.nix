@@ -8,6 +8,12 @@ in
     package = pkgs.gitFull;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+    signing = {
+      format = "openpgp";
+      key = "614620783D8AACD5AD8600BCB1FA1A8B3AEC54FD";
+      signByDefault = true;
+      signer = "${pkgs.gnupg}/bin/gpg";
+    };
     ignores = [
       ".envrc"
       ".direnv"
