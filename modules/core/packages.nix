@@ -45,6 +45,7 @@
   #};
 
   environment.systemPackages = with pkgs; [
+    age
     nix-ld
     #inputs.xwayland-satellite.packages.${pkgs.system}.xwayland-satellite
     (pkgs.bilibili.override {

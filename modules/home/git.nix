@@ -10,7 +10,7 @@ in
     userEmail = "${gitEmail}";
     signing = {
       format = "openpgp";
-      key = "614620783D8AACD5AD8600BCB1FA1A8B3AEC54FD";
+      key = "CCDCA20D4A5F54D004F088A8272D4F26832F8EF8";
       signByDefault = true;
       signer = "${pkgs.gnupg}/bin/gpg";
     };
