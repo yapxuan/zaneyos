@@ -35,6 +35,13 @@
     };
   };
 
+  powerManagement.cpuFreqGovernor = "performance";
+
+  #systemd.services.xwayland-satellite = {
+  # enable = true;
+  # wantedBy = [ "multi-user.target" ];
+  #};
+
   systemd.services.set-battery-threshold = {
     description = "Set battery charge limit to 90%";
     wantedBy = [ "multi-user.target" ];

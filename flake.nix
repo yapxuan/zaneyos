@@ -20,6 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    #xwayland-satellite = {
+    #  url = "github:Supreeeme/xwayland-satellite";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     quickemu = {
       url = "github:quickemu-project/quickemu";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +36,7 @@
 
   outputs =
     {
+      #xwayland-satellite,
       nixpkgs,
       nh,
       hyprland,

@@ -249,7 +249,7 @@
         nvim-notify.setupOpts.background_colour = "#${config.lib.stylix.colors.base01}";
       };
       utility = {
-        preview.markdownPreview.enable = true;
+        preview.glow.enable = true;
         ccc.enable = false;
         vim-wakatime.enable = false;
         icon-picker.enable = true;

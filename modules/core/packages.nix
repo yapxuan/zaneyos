@@ -6,7 +6,7 @@
 }:
 {
   programs = {
-    partition-manager.enable = true;
+    #partition-manager.enable = true;
     zsh.enable = true;
     neovim = {
       enable = true;
@@ -23,8 +23,8 @@
     };
     hyprlock.enable = true; # resolve pam issue https://gitlab.com/Zaney/zaneyos/-/issues/164
     fuse.userAllowOther = true;
-    mtr.enable = true;
-    adb.enable = true;
+    #mtr.enable = true;
+    #adb.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -39,9 +39,19 @@
   };
   nix.package = pkgs.nixVersions.git;
 
+  #environment.variables = {
+  #  DISPLAY = ":0";
+  #  WAYLAND_DISPLAY = "wayland-0";
+  #};
+
   environment.systemPackages = with pkgs; [
+    nix-ld
+    #inputs.xwayland-satellite.packages.${pkgs.system}.xwayland-satellite
+    (pkgs.bilibili.override {
+      commandLineArgs = "--ozone-platform-hint=wayland --enable-wayland-ime --enable-features=UseOzonePlatform";
+    })
     cryptsetup
-    btrfs-assistant
+    #btrfs-assistant
     #inputs.quickemu.packages.${pkgs.system}.quickemu # waiting for staging merge
     adwaita-icon-theme
     ntfs3g
@@ -53,11 +63,11 @@
     varia
     winetricks
     wineWowPackages.stagingFull
-    gnome-software
+    #gnome-software
     openssl
     element-desktop
     # amfora # Fancy Terminal Browser For Gemini Protocol
-    appimage-run # Needed For AppImage Support
+    #appimage-run # Needed For AppImage Support
     bottom # btop like util
     # brave # Brave Browser
     brightnessctl # For Screen Brightness Control
@@ -67,7 +77,7 @@
     # cmatrix # Matrix Movie Effect In Terminal
     # cowsay # Great Fun Terminal Program
     curlie
-    docker-compose # Allows Controlling Docker From A Single File
+    #docker-compose # Allows Controlling Docker From A Single File
     duf # Utility For Viewing Disk Usage In Terminal
     dysk # disk usage util
     eza # Beautiful ls Replacement
@@ -82,13 +92,13 @@
     # gping # graphical ping
     tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     # htop # Simple Terminal Based System Monitor
-    hyprpicker # Color Picker
+    #hyprpicker # Color Picker
     loupe # For Image Viewing
     # inxi # CLI System Information Tool
     jq
     killall # For Killing All Instances Of Programs
     libnotify # For Notifications
-    lm_sensors # Used For Getting Hardware Temps
+    #lm_sensors # Used For Getting Hardware Temps
     # lolcat # Add Colors To Your Terminal Command Output
     # lshw # Detailed Hardware Information
     mpv # Incredible Video Player

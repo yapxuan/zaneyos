@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   imports = [
+    ./nix-ld.nix
     ./boot.nix
     ./fcitx5.nix
     ./flatpak.nix
