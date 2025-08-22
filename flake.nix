@@ -2,6 +2,14 @@
   description = "ZaneyOS";
 
   inputs = {
+    agenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mysecrets = {
+      url = "git+ssh://git@github.com/yapxuan/nix-secret.git?ref=main";
+      flake = false;
+    };
     home-manager.url = "github:nix-community/home-manager/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -36,6 +44,8 @@
 
   outputs =
     {
+      mysecrets,
+      agenix,
       #xwayland-satellite,
       nixpkgs,
       nh,

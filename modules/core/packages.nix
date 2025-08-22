@@ -2,6 +2,7 @@
   pkgs,
   #pkgs-master,
   inputs,
+  lib,
   ...
 }:
 {
@@ -39,13 +40,18 @@
   };
   nix.package = pkgs.nixVersions.git;
 
-  #environment.variables = {
-  #  DISPLAY = ":0";
-  #  WAYLAND_DISPLAY = "wayland-0";
-  #};
+  environment.variables = {
+    HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+    AMD_VULKAN_ICD = "RADV";
+    PATH = lib.mkAfter "/opt/rocm/bin";
+    LD_LIBRARY_PATH = lib.mkForce "/etc/sane-libs:/opt/rocm/lib";
+    CMAKE_PREFIX_PATH = lib.mkAfter "/opt/rocm";
+    #  DISPLAY = ":0";
+    #  WAYLAND_DISPLAY = "wayland-0";
+  };
 
   environment.systemPackages = with pkgs; [
-    age
+    rage
     nix-ld
     #inputs.xwayland-satellite.packages.${pkgs.system}.xwayland-satellite
     (pkgs.bilibili.override {
@@ -117,7 +123,7 @@
     # picard # For Changing Music Metadata & Getting Cover Art
     # pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
-    python3Full
+    python3
     # qbittorrent
     # rhythmbox
     ripgrep # Improved Grep

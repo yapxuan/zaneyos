@@ -45,7 +45,6 @@ in
         smtpserverport = "587";
         smtpencryption = "tls";
         smtpuser = "puiyongqing@gmail.com";
-        smtppass.suppresscc = "all"; # don't automatically cc anyone (for testing)
       };
     };
     # Optional: FOSS-friendly Git aliases

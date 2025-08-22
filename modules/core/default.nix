@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   imports = [
+    ./secrets
     ./nix-ld.nix
     ./boot.nix
     ./fcitx5.nix
@@ -27,5 +28,6 @@
     inputs.stylix.nixosModules.stylix
     inputs.chaotic.nixosModules.default
     inputs.nur.modules.nixos.default
+    inputs.agenix.nixosModules.default
   ];
 }
