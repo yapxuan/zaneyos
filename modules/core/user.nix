@@ -4,7 +4,6 @@
   username,
   host,
   profile,
-  lib,
   ...
 }:
 let
@@ -13,8 +12,6 @@ in
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = false;
     backupFileExtension = "backup";
     extraSpecialArgs = {
       inherit
@@ -26,7 +23,6 @@ in
     };
     users.${username} = {
       imports = [ ./../home ];
-      xdg.portal.enable = lib.mkForce true; # temporary fix TODO
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
@@ -50,5 +46,22 @@ in
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
-  nix.settings.allowed-users = [ "${username}" ];
+  nix.settings = {
+    allowed-users = [ "${username}" ];
+    system-features = [
+      "benchmark"
+      "big-parallel"
+      "kvm"
+      "nixos-test"
+      "gcc-znver4"
+    ];
+  };
+  specialisation = {
+    heavywork.configuration = {
+      nix.settings = {
+        core = 0;
+        max-jobs = 1;
+      };
+    };
+  };
 }

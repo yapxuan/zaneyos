@@ -1,8 +1,8 @@
 {
   pkgs,
-  #pkgs-master,
   inputs,
   lib,
+  rocm64,
   ...
 }:
 {
@@ -33,10 +33,10 @@
   };
 
   nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (import ../../overlay)
-    ];
+    config = {
+      rocmSupport = true;
+      allowUnfree = true;
+    };
   };
   nix.package = pkgs.nixVersions.git;
 
@@ -44,13 +44,13 @@
     HSA_OVERRIDE_GFX_VERSION = "11.0.0";
     AMD_VULKAN_ICD = "RADV";
     PATH = lib.mkAfter "/opt/rocm/bin";
-    LD_LIBRARY_PATH = lib.mkForce "/etc/sane-libs:/opt/rocm/lib";
-    CMAKE_PREFIX_PATH = lib.mkAfter "/opt/rocm";
+    LD_LIBRARY_PATH = lib.mkAfter "/opt/rocm/lib";
     #  DISPLAY = ":0";
     #  WAYLAND_DISPLAY = "wayland-0";
   };
 
   environment.systemPackages = with pkgs; [
+    blender-hip
     rage
     nix-ld
     #inputs.xwayland-satellite.packages.${pkgs.system}.xwayland-satellite
@@ -141,8 +141,6 @@
     wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
     zapzap # Alternative of Whatsapp
-    animeko
-    # inputs.helix.packages."${pkgs.system}".helix
     (prismlauncher.override {
       # Add binary required by some mod
       additionalPrograms = [ ffmpeg ];

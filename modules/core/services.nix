@@ -6,6 +6,7 @@
       enable = true;
       interval = "weekly";
     };
+    swapspace.enable = true;
     speechd.enable = false;
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
@@ -13,11 +14,26 @@
     openssh.enable = true; # Enable SSH
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
-    scx = {
-      enable = true; # by default uses scx_rustland scheduler
-      scheduler = "scx_rusty";
-      package = pkgs.scx_git.full;
-    };
+    #scx = {
+    # enable = true; # by default uses scx_rustland scheduler
+    # scheduler = "scx_rusty";
+    # package = pkgs.scx_git.rustscheds;
+    # extraArgs = [
+    #   "--slice-us-underutil"
+    #   "30000"
+    #   "--slice-us-overutil"
+    #   "1500"
+    #   "--interval"
+    #   "1.5"
+    #   "--direct-greedy-under"
+    #   "70"
+    #   "--kick-greedy-under"
+    #   "90"
+    #   "--perf"
+    #   "512"
+    #   "--verbose"
+    # ];
+    #};
     gnome.gnome-keyring = {
       enable = true;
     };
@@ -36,6 +52,9 @@
   };
 
   powerManagement.cpuFreqGovernor = "performance";
+
+  zramSwap.enable = true;
+  systemd.oomd.enable = false;
 
   #systemd.services.xwayland-satellite = {
   # enable = true;

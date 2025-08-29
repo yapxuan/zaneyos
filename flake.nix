@@ -10,15 +10,30 @@
       url = "git+ssh://git@github.com/yapxuan/nix-secret.git?ref=main";
       flake = false;
     };
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+
+    };
+    rocm64 = {
+      url = "github:LunNova/nixpkgs/lunnova/rocm-6.4.x";
+      flake = false;
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    #nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      #inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.home-manager.follows = "home-manager";
+    };
+    nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix/master";
+    stylix = {
+      url = "github:danth/stylix/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nh = {
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +42,10 @@
       url = "github:LGFae/swww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #xwayland-satellite = {
     #  url = "github:Supreeeme/xwayland-satellite";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -54,6 +72,7 @@
       chaotic,
       nur,
       quickemu,
+      rocm64,
       ...
     }@inputs:
     let
@@ -71,13 +90,18 @@
             inherit username;
             inherit host;
             profile = "amd";
-            #pkgs-master = import inputs.nixpkgs-master {
-            #  system = "x86_64-linux";
-            #  config.allowUnfree = true;
-            #};
-
+            pkgs-small = import inputs.nixpkgs-small {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            rocm64 = import rocm64 {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
-          modules = [ ./profiles/amd ];
+          modules = [
+            ./profiles/amd
+          ];
         };
       };
     };

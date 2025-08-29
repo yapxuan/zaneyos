@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  rocm64,
   ...
 }:
 with lib;
@@ -18,10 +19,17 @@ in
       let
         rocmEnv = pkgs.symlinkJoin {
           name = "rocm-combined";
-          paths = with pkgs.rocmPackages; [
+          paths = with rocm64.rocmPackages; [
             rocblas
             hipblas
             clr
+            hiprt
+            rocfft
+            hipcc
+            rocrand
+            hipsparse
+            migraphx
+            miopen
           ];
         };
       in

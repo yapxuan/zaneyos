@@ -1,25 +1,15 @@
-{ pkgs, inputs, ... }:
-let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
+{ pkgs, rocm64, ... }:
 {
   hardware = {
-    sane = {
-      enable = true;
-      extraBackends = [ pkgs.sane-airscan ];
-      disabledDefaultBackends = [ "escl" ];
-    };
-    logitech.wireless.enable = false;
-    logitech.wireless.enableGraphical = false;
-    graphics.enable = true;
     enableRedistributableFirmware = true;
-    keyboard.qmk.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
     graphics = {
-      package = pkgs-unstable.mesa;
+      enable = true;
       enable32Bit = true;
-      package32 = pkgs-unstable.pkgsi686Linux.mesa;
+      extraPackages = with pkgs; [
+        rocm64.rocmPackages.clr.icd
+      ];
     };
     amdgpu = {
       initrd.enable = true;
@@ -30,6 +20,17 @@ in
         supportExperimental.enable = true;
       };
     };
+  };
+  chaotic.mesa-git = {
+    enable = true;
+    fallbackSpecialisation = false;
+    extraPackages = with pkgs.mesa_git; [
+      opencl
+    ];
+    extraPackages32 = with pkgs.mesa32_git; [
+      opencl
+    ];
+
   };
   local.hardware-clock.enable = false;
 }
