@@ -76,8 +76,6 @@ in
       };
 
       gestures = {
-        workspace_swipe = 1;
-        workspace_swipe_fingers = 3;
         workspace_swipe_distance = 500;
         workspace_swipe_invert = 1;
         workspace_swipe_min_speed_to_force = 30;
@@ -85,6 +83,10 @@ in
         workspace_swipe_create_new = 1;
         workspace_swipe_forever = 1;
       };
+
+      gesture = [
+        "3, horizontal, workspace"
+      ];
 
       general = {
         "$modifier" = "SUPER";
