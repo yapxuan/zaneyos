@@ -19,7 +19,7 @@ in
       let
         rocmEnv = pkgs.symlinkJoin {
           name = "rocm-combined";
-          paths = with rocm64.rocmPackages; [
+          paths = with pkgs.rocmPackages; [
             rocblas
             hipblas
             clr
@@ -30,6 +30,8 @@ in
             hipsparse
             migraphx
             miopen
+            amdsmi
+            rocm-smi
           ];
         };
       in

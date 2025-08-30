@@ -1,6 +1,6 @@
 { rocm64, ... }:
 {
-  nixpkgs.config.overlays = [
+  nixpkgs.overlays = [
     (_final: prev: {
 
       qt6Packages = prev.qt6Packages.overrideScope (

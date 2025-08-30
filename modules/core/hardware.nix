@@ -8,7 +8,7 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        rocm64.rocmPackages.clr.icd
+        rocmPackages.clr.icd
       ];
     };
     amdgpu = {

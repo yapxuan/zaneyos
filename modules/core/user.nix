@@ -42,6 +42,8 @@ in
       "networkmanager"
       "scanner"
       "wheel"
+      "render"
+      "video"
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
@@ -59,7 +61,7 @@ in
   specialisation = {
     heavywork.configuration = {
       nix.settings = {
-        core = 0;
+        cores = 0;
         max-jobs = 1;
       };
     };
