@@ -1,10 +1,26 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   # Services to start
   services = {
     btrfs.autoScrub = {
       enable = true;
       interval = "weekly";
+    };
+    beesd.filesystems = {
+      "root" = {
+        spec = "/";
+        hashTableSizeMB = 2048;
+        verbosity = "crit";
+        extraOptions = [
+          "--loadavg-target"
+          "5.0"
+        ];
+      };
+    };
+    cachix-watch-store = {
+      enable = true;
+      cacheName = "yapxuan";
+      cachixTokenFile = config.age.secrets.cachix.path;
     };
     swapspace.enable = true;
     speechd.enable = false;
@@ -16,23 +32,23 @@
     tumbler.enable = true; # Image/video preview
     #scx = {
     # enable = true; # by default uses scx_rustland scheduler
-    # scheduler = "scx_rusty";
-    # package = pkgs.scx_git.rustscheds;
+    #scheduler = "scx_rusty";
+    #package = pkgs.scx_git.rustscheds;
     # extraArgs = [
-    #   "--slice-us-underutil"
-    #   "30000"
-    #   "--slice-us-overutil"
+    #  "--slice-us-underutil"
+    # "30000"
+    #"--slice-us-overutil"
     #   "1500"
-    #   "--interval"
-    #   "1.5"
-    #   "--direct-greedy-under"
-    #   "70"
+    #  "--interval"
+    # "1.5"
+    #"--direct-greedy-under"
+    #    "70"
     #   "--kick-greedy-under"
-    #   "90"
-    #   "--perf"
-    #   "512"
-    #   "--verbose"
-    # ];
+    #  "90"
+    # "--perf"
+    #"512"
+    #"--verbose"
+    #];
     #};
     gnome.gnome-keyring = {
       enable = true;

@@ -1,4 +1,4 @@
-{ rocm64, ... }:
+#{ rocm64, ... }:
 {
   nixpkgs.overlays = [
     (_final: prev: {
@@ -47,20 +47,6 @@
           {
             mesonFlags = [ (prev.lib.mesonEnable "wallpaper" false) ];
           };
-
-      # rocm64
-      rocmPackages = rocm64.rocmPackages.overrideScope (
-        _rocmFinal: rocmPrev: {
-          clr = rocmPrev.clr.override {
-            localGpuTargets = [
-              "gfx1100"
-              "gfx11-generic"
-            ];
-          };
-        }
-      );
-      btop-rocm = rocm64.btop-rocm;
-      ollama-rocm = rocm64.ollama-rocm;
     })
   ];
 }

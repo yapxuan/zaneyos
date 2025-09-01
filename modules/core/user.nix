@@ -58,12 +58,12 @@ in
       "gcc-znver4"
     ];
   };
-  specialisation = {
-    heavywork.configuration = {
-      nix.settings = {
-        cores = 0;
-        max-jobs = 1;
-      };
-    };
-  };
+  #specialisation = {
+  # heavywork.configuration = {
+  #   nix.settings = {
+  #     cores = 0;
+  #     max-jobs = 1;
+  #   };
+  # };
+  #};
 }

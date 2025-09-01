@@ -187,7 +187,6 @@
         typst.enable = true;
         rust = {
           enable = true;
-          crates.enable = true;
           lsp = {
             enable = true;
             opts = ''

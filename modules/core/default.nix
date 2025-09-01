@@ -30,5 +30,6 @@
     inputs.chaotic.nixosModules.default
     inputs.nur.modules.nixos.default
     inputs.agenix.nixosModules.default
+    inputs.lix-module.nixosModules.default
   ];
 }

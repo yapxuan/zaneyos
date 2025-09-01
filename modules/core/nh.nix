@@ -14,9 +14,4 @@
     };
     flake = "/home/${username}/zaneyos";
   };
-
-  environment.systemPackages = with pkgs; [
-    nix-output-monitor
-    nvd
-  ];
 }
