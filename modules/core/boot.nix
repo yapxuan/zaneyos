@@ -6,8 +6,9 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-rc.cachyOverride {
+    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride {
       mArch = "ZEN4";
+      useLTO = "full";
     };
 
     kernelParams = [

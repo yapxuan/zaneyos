@@ -32,6 +32,7 @@
     options = [
       "subvol=@"
       "compress=zstd"
+      "noatime"
     ];
   };
 
@@ -47,7 +48,7 @@
   swapDevices = [
     {
       device = "/dev/disk/by-uuid/e5382280-cf2c-4a3d-a5bd-fae4f3ccd638";
-      options = [ "discard" ];
+      options = [ "discard=once" ];
     }
   ];
 

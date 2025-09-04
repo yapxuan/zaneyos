@@ -17,6 +17,7 @@ in
         "https://yapxuan.cachix.org"
         "https://nix-community.cachix.org"
         "https://chaotic-nyx.cachix.org/"
+        "https://yazi.cachix.org"
       ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -24,6 +25,7 @@ in
         "yapxuan.cachix.org-1:patwx9r3ULo9bqp+70S01APEvpw2z20la9t/okouaRg="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];
       trusted-users = [
         "root"

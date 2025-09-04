@@ -39,16 +39,20 @@
     };
   };
 
-  environment.variables = {
-    HSA_OVERRIDE_GFX_VERSION = "11.0.0";
-    AMD_VULKAN_ICD = "RADV";
-    PATH = lib.mkAfter "/opt/rocm/bin";
-    LD_LIBRARY_PATH = lib.mkAfter "/opt/rocm/lib";
-    #  DISPLAY = ":0";
-    #  WAYLAND_DISPLAY = "wayland-0";
+  environment = {
+    sessionVariables = {
+      MOZ_USE_XINPUT2 = "1";
+    };
+    variables = {
+      HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+      AMD_VULKAN_ICD = "RADV";
+      PATH = lib.mkAfter "/opt/rocm/bin";
+      LD_LIBRARY_PATH = lib.mkAfter "/opt/rocm/lib";
+    };
   };
 
   environment.systemPackages = with pkgs; [
+    xarchiver
     blender-hip
     rage
     nix-ld

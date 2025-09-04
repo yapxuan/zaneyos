@@ -2,6 +2,7 @@
   description = "ZaneyOS";
 
   inputs = {
+    yazi.url = "github:sxyazi/yazi";
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
       flake = false;
@@ -79,6 +80,7 @@
       nur,
       lix,
       lix-module,
+      yazi,
       ...
     }@inputs:
     let

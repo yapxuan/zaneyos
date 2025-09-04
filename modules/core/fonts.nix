@@ -11,6 +11,7 @@
       material-icons
       fira-code
       fira-code-symbols
+      corefonts
     ];
   };
 }

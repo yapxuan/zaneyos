@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   settings = import ./yazi.nix;
   keymap = import ./keymap.nix;
@@ -7,19 +7,22 @@ in
 {
   programs.yazi = {
     enable = true;
+    package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      _7zz = pkgs._7zz-rar;
+    };
     enableZshIntegration = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
     shellWrapperName = "yy";
-    settings = settings;
-    keymap = keymap;
-    theme = theme;
+    inherit settings keymap theme;
     plugins = {
-      lazygit = pkgs.yaziPlugins.lazygit;
-      full-border = pkgs.yaziPlugins.full-border;
-      git = pkgs.yaziPlugins.git;
-      smart-enter = pkgs.yaziPlugins.smart-enter;
-      mount = pkgs.yaziPlugins.mount;
+      inherit (pkgs.yaziPlugins)
+        lazygit
+        full-border
+        git
+        smart-enter
+        mount
+        ;
     };
 
     initLua = ''
