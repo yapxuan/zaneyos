@@ -1,4 +1,3 @@
-{ ... }:
 {
   wayland.windowManager.hyprland.settings = {
     # Name: END-4

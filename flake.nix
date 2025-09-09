@@ -107,6 +107,17 @@
               username
               host
               flake_dir
+              mysecrets
+              agenix
+              nh
+              hyprland
+              swww
+              chaotic
+              nur
+              lix
+              lix-module
+              yazi
+              nix-index-database
               ;
             profile = "amd";
             pkgs-stable = import inputs.nixpkgs-2505 {
