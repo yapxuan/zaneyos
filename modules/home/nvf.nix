@@ -3,6 +3,7 @@
   pkgs,
   flake_dir,
   inputs,
+  host,
   ...
 }:
 {
@@ -164,10 +165,10 @@
             server = "nixd";
             options = {
               nixos = {
-                expr = "(builtins.getFlake \"${flake_dir}\").nixosConfigurations.nixos.options";
+                expr = "(builtins.getFlake \"${flake_dir}\").nixosConfigurations.${host}.options";
               };
               home_manager = {
-                expr = "(builtins.getFlake \"${flake_dir}\").nixosConfigurations.puiyq.options.home-manager.users.type.getSubOptions []";
+                expr = "(builtins.getFlake \"${flake_dir}\").nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions []";
               };
             };
           };
