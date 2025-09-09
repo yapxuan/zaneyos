@@ -1,4 +1,3 @@
-#{ rocm64, ... }:
 {
   nixpkgs.overlays = [
     (_final: prev: {

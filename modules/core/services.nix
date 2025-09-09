@@ -75,7 +75,10 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    writebackDevice = "/dev/nvme0n1p5";
+  };
   systemd.oomd.enable = false;
 
   systemd.services.set-battery-threshold = {

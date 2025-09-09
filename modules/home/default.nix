@@ -1,4 +1,4 @@
-{ host, ... }:
+{ host, inputs, ... }:
 let
   inherit (import ../../hosts/${host}/variables.nix) waybarChoice;
 in
@@ -50,5 +50,6 @@ in
     ./yazi
     ./zoxide.nix
     ./zsh
+    inputs.nix-index-database.homeModules.nix-index
   ];
 }

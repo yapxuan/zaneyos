@@ -6,25 +6,42 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride {
+    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {
       mArch = "ZEN4";
       useLTO = "full";
     };
 
     kernelParams = [
-      "zswap.enabled=1" # enables zswap
-      "zswap.compressor=lz4" # compression algorithm
+      #"zswap.enabled=1" # enables zswap
+      #"zswap.compressor=lz4" # compression algorithm
+      #"zswap.zpool=z3fold"
+      "systemd.swap=0"
     ];
 
     kernelModules = [
       "v4l2loopback"
+      "kvm-amd"
     ];
+
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
       "kernel.sysrq" = 1; # REISUB
     };
-    initrd.systemd.enable = true;
+    initrd = {
+      #systemd.enable = true;
+      #kernelModules = [
+      # "lz4"
+      # "z3fold"
+      #];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "thunderbolt"
+        "uas"
+        "sd_mod"
+      ];
+    };
     loader.limine = {
       enable = true;
       efiSupport = true;

@@ -1,4 +1,4 @@
-{ pkgs, rocm64, ... }:
+{ pkgs, ... }:
 {
   hardware = {
     enableRedistributableFirmware = true;
@@ -14,11 +14,6 @@
     amdgpu = {
       initrd.enable = true;
       opencl.enable = true;
-      amdvlk = {
-        enable = true;
-        support32Bit.enable = true;
-        supportExperimental.enable = true;
-      };
     };
   };
   chaotic.mesa-git = {

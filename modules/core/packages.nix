@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   lib,
-  pkgs-stable,
+  #pkgs-stable,
   ...
 }:
 {
@@ -24,7 +24,7 @@
     };
     hyprlock.enable = true; # resolve pam issue https://gitlab.com/Zaney/zaneyos/-/issues/164
     fuse.userAllowOther = true;
-    #mtr.enable = true;
+    mtr.enable = true;
     #adb.enable = true;
     gnupg.agent = {
       enable = true;
@@ -45,15 +45,16 @@
     };
     variables = {
       HSA_OVERRIDE_GFX_VERSION = "11.0.0";
-      AMD_VULKAN_ICD = "RADV";
       PATH = lib.mkAfter "/opt/rocm/bin";
       LD_LIBRARY_PATH = lib.mkAfter "/opt/rocm/lib";
     };
   };
 
   environment.systemPackages = with pkgs; [
+    discord
     xarchiver
-    blender-hip
+    teams-for-linux
+    #blender-hip
     rage
     nix-ld
     (pkgs.bilibili.override {
@@ -66,8 +67,8 @@
     #waydroid-helper
     onlyoffice-desktopeditors
     varia
-    winetricks
-    wineWowPackages.stagingFull
+    #winetricks
+    #wineWowPackages.stagingFull
     openssl
     element-desktop
     #appimage-run # Needed For AppImage Support

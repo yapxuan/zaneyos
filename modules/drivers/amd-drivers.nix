@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  rocm64,
   ...
 }:
 with lib;

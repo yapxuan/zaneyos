@@ -1,7 +1,8 @@
 {
-  inputs,
   config,
   pkgs,
+  flake_dir,
+  inputs,
   ...
 }:
 {
@@ -161,12 +162,24 @@
             enable = true;
             package = pkgs.nixd;
             server = "nixd";
+            options = {
+              nixos = {
+                expr = "(builtins.getFlake \"${flake_dir}\").nixosConfigurations.nixos.options";
+              };
+              home_manager = {
+                expr = "(builtins.getFlake \"${flake_dir}\").nixosConfigurations.puiyq.options.home-manager.users.type.getSubOptions []";
+              };
+            };
           };
           format = {
             enable = true;
             package = pkgs.nixfmt;
             type = "nixfmt";
           };
+          #treesitter = {
+          #enable = true;
+          #package = pkgs.vimPlugins.nvim-treesitter.builtGrammars.nix;
+          #};
         };
         clang.enable = true;
         zig.enable = true;

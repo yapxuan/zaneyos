@@ -3,6 +3,7 @@
 
   inputs = {
     yazi.url = "github:sxyazi/yazi";
+
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
       flake = false;
@@ -66,6 +67,11 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -81,12 +87,14 @@
       lix,
       lix-module,
       yazi,
+      nix-index-database,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       host = "nixos";
       username = "puiyq";
+      flake_dir = "/home/${username}/zaneyos";
     in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
@@ -94,9 +102,12 @@
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit host;
+            inherit
+              inputs
+              username
+              host
+              flake_dir
+              ;
             profile = "amd";
             pkgs-stable = import inputs.nixpkgs-2505 {
               system = "x86_64-linux";

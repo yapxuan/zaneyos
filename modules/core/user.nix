@@ -1,9 +1,10 @@
 {
   pkgs,
-  inputs,
   username,
   host,
   profile,
+  flake_dir,
+  inputs,
   ...
 }:
 let
@@ -15,10 +16,11 @@ in
     backupFileExtension = "backup";
     extraSpecialArgs = {
       inherit
-        inputs
         username
         host
         profile
+        flake_dir
+        inputs
         ;
     };
     users.${username} = {
