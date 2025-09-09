@@ -2,6 +2,7 @@
   host,
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -13,7 +14,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    swww
+    inputs.swww.packages.${pkgs.system}.swww
     grim
     slurp
     wl-clipboard

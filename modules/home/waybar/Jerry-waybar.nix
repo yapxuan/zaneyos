@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   lib,
   ...
 }:
@@ -8,9 +7,7 @@ let
   terminal = "kitty";
   base00 = "0F1419";
   base01 = "131721";
-  base03 = "3E4B59";
   base05 = "E6E1CF";
-  base06 = "E6E1CF";
   base07 = "F3F4F5";
   base08 = "F07178";
   base09 = "FF8F40";

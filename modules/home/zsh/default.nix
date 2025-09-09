@@ -1,14 +1,9 @@
 {
-  profile,
   pkgs,
   lib,
   ...
 }:
 {
-  imports = [
-    ./zshrc-personal.nix
-  ];
-
   home.shell.enableZshIntegration = true;
   programs.zsh = {
     enable = true;
@@ -54,19 +49,26 @@
       bindkey "\ej" down-line-or-history
       bindkey "\ek" up-line-or-history
       bindkey "\el" forward-word
-      if [ -f $HOME/.zshrc-personal ]; then
-        source $HOME/.zshrc-personal
-      fi
+      nix() {
+        case "$1" in
+          shell|develop|build)
+            nom "$@"
+            ;;
+          *)
+            command nix "$@"
+            ;;
+        esac
+      }
     '';
 
     shellAliases = {
       sv = "sudo nvim";
       v = "nvim";
       c = "clear";
-      fr = "nh os switch --hostname ${profile}";
-      fu = "nh os switch --hostname ${profile} --update";
+      fr = "nh os switch";
+      fu = "nh os switch --update";
       zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/releases/latest/download/install-zaneyos.sh)";
-      ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      ncg = "nh clean all";
       cat = "bat";
       man = "batman";
       curl = "curlie";

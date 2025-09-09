@@ -1,8 +1,4 @@
 {
-  ...
-}:
-
-{
   programs = {
     starship = {
       enable = true;
