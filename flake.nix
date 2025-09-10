@@ -2,7 +2,11 @@
   description = "ZaneyOS";
 
   inputs = {
-    yazi.url = "github:sxyazi/yazi";
+
+    yazi = {
+      url = "github:sxyazi/yazi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
