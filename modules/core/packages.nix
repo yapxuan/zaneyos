@@ -8,6 +8,16 @@
 {
   programs = {
     #partition-manager.enable = true;
+    #appimage = {
+    # enable = true;
+    # binfmt = true;
+    # package = pkgs.appimage-run.override {
+    #   extraPkgs = pkgs: [
+    #     pkgs.ffmpeg
+    #     pkgs.imagemagick
+    #   ];
+    # };
+    #};
     zsh.enable = true;
     neovim = {
       enable = true;
@@ -51,6 +61,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    inputs.self.packages.${system}.animeko
+    #pkgs-stable.animeko
     discord
     xarchiver
     teams-for-linux
@@ -71,7 +83,6 @@
     #wineWowPackages.stagingFull
     openssl
     element-desktop
-    #appimage-run # Needed For AppImage Support
     bottom # btop like util
     brightnessctl # For Screen Brightness Control
     cargo

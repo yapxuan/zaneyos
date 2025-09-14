@@ -80,6 +80,7 @@
 
   outputs =
     {
+      self,
       mysecrets,
       agenix,
       nixpkgs,
@@ -101,6 +102,19 @@
       flake_dir = "/home/${username}/zaneyos";
     in
     {
+      packages = nixpkgs.lib.genAttrs [ system ] (system: {
+        inherit
+          (import nixpkgs {
+            inherit system;
+            overlays = [
+              (final: _prev: {
+                animeko = final.callPackage ./pkgs/animeko { };
+              })
+            ];
+          })
+          animeko
+          ;
+      });
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
@@ -108,6 +122,7 @@
           specialArgs = {
             inherit
               inputs
+              self
               username
               host
               flake_dir
