@@ -19,7 +19,7 @@
     };
     cachix-watch-store = {
       enable = true;
-      cacheName = "yapxuan";
+      cacheName = "puiyq";
       cachixTokenFile = config.age.secrets.cachix.path;
     };
     ananicy = {
