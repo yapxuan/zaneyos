@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./uv.nix
     ./mpv.nix
     ./gpg.nix
     ./packages.nix

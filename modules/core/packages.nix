@@ -110,7 +110,6 @@
     pciutils # Collection Of Tools For Inspecting PCI Devices
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
-    python3
     ripgrep # Improved Grep
     rustc
     rustfmt
