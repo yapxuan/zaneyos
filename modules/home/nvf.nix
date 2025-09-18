@@ -136,12 +136,6 @@
 
       telescope.enable = true;
 
-      # spellcheck = {
-      #   enable = false;
-      #   languages = [ "en" ];
-      #   programmingWordlist.enable = false;
-      # };
-
       lsp = {
         formatOnSave = true;
         lspkind.enable = false;
@@ -177,14 +171,18 @@
             package = pkgs.nixfmt;
             type = "nixfmt";
           };
-          #treesitter = {
-          #enable = true;
-          #package = pkgs.vimPlugins.nvim-treesitter.builtGrammars.nix;
-          #};
         };
         clang.enable = true;
         zig.enable = true;
-        python.enable = true;
+        python = {
+          enable = true;
+          lsp.enable = true;
+          format = {
+            enable = true;
+            package = pkgs.ruff;
+            type = "ruff";
+          };
+        };
         markdown.enable = true;
         ts = {
           enable = true;
