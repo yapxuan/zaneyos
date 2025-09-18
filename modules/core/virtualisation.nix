@@ -9,6 +9,7 @@
         ovmf.enable = true;
       };
     };
+    spiceUSBRedirection.enable = true;
     docker.enable = false;
     #podman.enable = true;
     #waydroid.enable = true;
@@ -16,10 +17,8 @@
   programs = {
     virt-manager.enable = true;
   };
+
   environment.systemPackages = with pkgs; [
     virt-viewer # View Virtual Machines
   ];
-  virtualisation.spiceUSBRedirection.enable = true;
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
-
 }

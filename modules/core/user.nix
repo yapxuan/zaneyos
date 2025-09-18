@@ -38,11 +38,8 @@ in
     description = "${gitUsername}";
     extraGroups = [
       "adbusers"
-      "docker"
       "libvirtd"
-      "lp"
       "networkmanager"
-      "scanner"
       "wheel"
       "render"
       "video"
