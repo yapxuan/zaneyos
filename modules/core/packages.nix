@@ -50,9 +50,6 @@
   };
 
   environment = {
-    sessionVariables = {
-      MOZ_USE_XINPUT2 = "1";
-    };
     variables = {
       HSA_OVERRIDE_GFX_VERSION = "11.0.0";
       PATH = lib.mkAfter "/opt/rocm/bin";
@@ -61,8 +58,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    python313Packages.python
     inputs.self.packages.${system}.animeko
-    #pkgs-stable.animeko
     discord
     xarchiver
     teams-for-linux
