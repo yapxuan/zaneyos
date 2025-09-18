@@ -878,14 +878,14 @@
       "locked": {
         "lastModified": 1757947920,
         "narHash": "sha256-w3blL7HqnO5dpR25YUHwk8P8hJ3yLxKOKKb+FnyTGpg=",
-        "ref": "main",
+        "ref": "refs/heads/main",
         "rev": "610767bda00c06af7a84ede8309aa51637c49283",
-        "revCount": 5,
+        "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/yapxuan/nix-secret.git"
       },
       "original": {
-        "ref": "main",
+        "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/yapxuan/nix-secret.git"
       }
