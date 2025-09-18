@@ -17,8 +17,11 @@
       zulu17
       zulu
       libarchive
+      libssh
       openssl
       libsodium
+      libxml2
+      systemd
       attr
       acl
       util-linux
