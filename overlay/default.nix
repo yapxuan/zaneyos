@@ -1,3 +1,4 @@
+{ firmware, ... }:
 {
   nixpkgs.overlays = [
     (_final: prev: {
@@ -46,6 +47,14 @@
           {
             mesonFlags = [ (prev.lib.mesonEnable "wallpaper" false) ];
           };
+
+      inherit (firmware) linux-firmware; # FIXME
+      /*
+        mt7921e wifi firmware broken with linux-firmware 20250918
+        Related issue: https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware/-/issues/29
+        Posible upstream related commit: https://gitlab.com/kernel-firmware/linux-firmware/-/commit/4573c02ca0caf001c5ce5dbb62015d588258588b
+      */
+
     })
   ];
 }

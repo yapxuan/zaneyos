@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758250706,
-        "narHash": "sha256-Jv/V+PNi5RyqCUK2V6YJ0iCqdLPutU69LZas85EBUaU=",
+        "lastModified": 1758296614,
+        "narHash": "sha256-l60D1i0aaSqemy9dL7wP0ePMfcv/oZbeKpvUMY+q0kQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "363007f12930caf8b0ea59c0bf5be109c52ad0ef",
+        "rev": "55b1f5b7b191572257545413b98e37abab2fdb00",
         "type": "github"
       },
       "original": {
@@ -614,11 +614,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1758234894,
-        "narHash": "sha256-SMVNkX0O1uYwqsFAam5vr/zdIKhJl/OpEuVkxecZb4E=",
+        "lastModified": 1758293956,
+        "narHash": "sha256-+UCEuPcCsWkyQh73KouiVZmcsW6ljVKHUUXDcJNI41w=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "afd1e71761ce4cb71bb3316dc5e4a7cc81235e7a",
+        "rev": "88326075743a677e76645ff163b392490419d4de",
         "type": "github"
       },
       "original": {
@@ -824,11 +824,11 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1758231526,
-        "narHash": "sha256-oB+j7NJ+MV1H6vedds5n1T4tcoEftFoYZNn3Xi5JsqE=",
-        "rev": "2a622d7de75bc7e228d862cf5bc379c91f38b76c",
+        "lastModified": 1758307909,
+        "narHash": "sha256-aZ9gNCx5OtT++i6dUNbU4kRE9Nj9aLuOx7hNZW7FTn8=",
+        "rev": "3a4f9488f0a9ca46b22b38de7e0a760a9a63129a",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/2a622d7de75bc7e228d862cf5bc379c91f38b76c.tar.gz?rev=2a622d7de75bc7e228d862cf5bc379c91f38b76c"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/3a4f9488f0a9ca46b22b38de7e0a760a9a63129a.tar.gz?rev=3a4f9488f0a9ca46b22b38de7e0a760a9a63129a"
       },
       "original": {
         "type": "tarball",
@@ -870,6 +870,22 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "mnw",
+        "type": "github"
+      }
+    },
+    "mt7921e-firmware": {
+      "locked": {
+        "lastModified": 1754655500,
+        "narHash": "sha256-VlYYeF9r6xbpTcnY0GVzphygl8Gt2kzTVsDhbzNMrLw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1273efa67f5ea516eebc3332e538437d2f00b25c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1273efa67f5ea516eebc3332e538437d2f00b25c",
         "type": "github"
       }
     },
@@ -971,11 +987,11 @@
     },
     "nixpkgs-2505": {
       "locked": {
-        "lastModified": 1758070117,
-        "narHash": "sha256-uLwwHFCZnT1c3N3biVe/0hCkag2GSrf9+M56+Okf+WY=",
+        "lastModified": 1758216857,
+        "narHash": "sha256-h1BW2y7CY4LI9w61R02wPaOYfmYo82FyRqHIwukQ6SY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e9b7f2ff62b35f711568b1f0866243c7c302028d",
+        "rev": "d2ed99647a4b195f0bcc440f76edfa10aeb3b743",
         "type": "github"
       },
       "original": {
@@ -1009,11 +1025,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758273929,
-        "narHash": "sha256-8ZhQaoeWOcCpe14PLgJ7ZEhWFFISA2qcVuXTGlNZGgU=",
+        "lastModified": 1758340999,
+        "narHash": "sha256-cez5WTkwah2cZNCbqhZUgQIy4hV5eY4nEZNnsT1NUEM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "2d644af21cc32d53594b9d17fa167c4eec6431cd",
+        "rev": "d9772f802e49449b3729220426cc6ba51aa86c5d",
         "type": "github"
       },
       "original": {
@@ -1102,6 +1118,7 @@
         "hyprland": "hyprland",
         "lix": "lix",
         "lix-module": "lix-module",
+        "mt7921e-firmware": "mt7921e-firmware",
         "mysecrets": "mysecrets",
         "nh": "nh",
         "nix-index-database": "nix-index-database",
@@ -1242,11 +1259,11 @@
         "rust-overlay": "rust-overlay_3"
       },
       "locked": {
-        "lastModified": 1757611379,
-        "narHash": "sha256-J6TnU1opkqDdNKZCMW/FJW9gL+4hov7InSJUWw6vibQ=",
+        "lastModified": 1758331784,
+        "narHash": "sha256-p875/DbftYnTkogv2CeNe5eMYrX9LCEaFGuMoDv3dj4=",
         "owner": "LGFae",
         "repo": "swww",
-        "rev": "19ce5d5ac8008f764e4aa74b9d32de61d31fd7c1",
+        "rev": "16f284670913750216112ce59849b1e82e63d4cb",
         "type": "github"
       },
       "original": {

@@ -38,6 +38,8 @@
 
     nixpkgs-2505.url = "github:nixos/nixpkgs/nixos-25.05";
 
+    mt7921e-firmware.url = "github:nixos/nixpkgs/1273efa67f5ea516eebc3332e538437d2f00b25c";
+
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     };
@@ -143,6 +145,11 @@
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
+            firmware = import inputs.mt7921e-firmware {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+
           };
           modules = [
             ./profiles/amd
