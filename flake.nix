@@ -2,7 +2,6 @@
   description = "ZaneyOS";
 
   inputs = {
-
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,9 +39,7 @@
 
     mt7921e-firmware.url = "github:nixos/nixpkgs/1273efa67f5ea516eebc3332e538437d2f00b25c";
 
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -136,7 +133,6 @@
           specialArgs = {
             inherit
               inputs
-              self
               username
               host
               flake_dir
@@ -154,14 +150,13 @@
               ;
             profile = "amd";
             pkgs-stable = import inputs.nixpkgs-2505 {
-              system = "x86_64-linux";
+              inherit system;
               config.allowUnfree = true;
             };
             firmware = import inputs.mt7921e-firmware {
-              system = "x86_64-linux";
+              inherit system;
               config.allowUnfree = true;
             };
-
           };
           modules = [
             ./profiles/amd

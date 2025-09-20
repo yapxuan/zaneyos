@@ -7,7 +7,6 @@
   };
 
   accounts.email.accounts = {
-
     outlook = {
       realName = "Yong Qing PUI";
       address = "104395234@students.swinburne.edu.my";
