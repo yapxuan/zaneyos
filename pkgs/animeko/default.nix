@@ -77,7 +77,6 @@
   writeShellScript,
   nix-update,
 }:
-
 stdenv.mkDerivation (finalAttrs: {
   pname = "animeko";
   version = "5.0.1";

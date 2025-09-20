@@ -22,7 +22,6 @@
     extraPackages32 = with pkgs.mesa32_git; [
       opencl
     ];
-
   };
   local.hardware-clock.enable = false;
 }

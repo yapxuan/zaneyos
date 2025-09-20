@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 let
   settings = import ./yazi.nix;
   keymap = import ./keymap.nix;

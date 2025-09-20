@@ -3,7 +3,6 @@
   config,
   ...
 }:
-
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {

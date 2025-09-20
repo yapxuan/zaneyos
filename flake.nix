@@ -2,7 +2,6 @@
   description = "ZaneyOS";
 
   inputs = {
-
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,13 +35,9 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-2505.url = "github:nixos/nixpkgs/nixos-25.05";
-
     mt7921e-firmware.url = "github:nixos/nixpkgs/1273efa67f5ea516eebc3332e538437d2f00b25c";
 
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -108,22 +103,19 @@
       host = "nixos";
       username = "puiyq";
       flake_dir = "/home/${username}/zaneyos";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          (final: prev: {
+            animeko = final.callPackage ./pkgs/animeko { };
+          })
+        ];
+      };
     in
     {
-      packages = nixpkgs.lib.genAttrs [ system ] (system: {
-        inherit
-          (import nixpkgs {
-            inherit system;
-            overlays = [
-              (final: _prev: {
-                animeko = final.callPackage ./pkgs/animeko { };
-              })
-            ];
-          })
-          animeko
-          ;
-      });
+      packages.${system} = {
+        inherit (pkgs) animeko;
+      };
       templates.treefmt = {
         path = ./templates/treefmt;
         description = "Minimal treefmt-nix";
@@ -138,7 +130,6 @@
           specialArgs = {
             inherit
               inputs
-              self
               username
               host
               flake_dir
@@ -155,15 +146,10 @@
               nix-index-database
               ;
             profile = "amd";
-            pkgs-stable = import inputs.nixpkgs-2505 {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
             firmware = import inputs.mt7921e-firmware {
-              system = "x86_64-linux";
+              inherit system;
               config.allowUnfree = true;
             };
-
           };
           modules = [
             ./profiles/amd

@@ -1,4 +1,8 @@
-{ host, inputs, ... }:
+{
+  host,
+  inputs,
+  ...
+}:
 let
   inherit (import ../../hosts/${host}/variables.nix) waybarChoice;
 in

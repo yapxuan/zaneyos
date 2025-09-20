@@ -2,7 +2,6 @@
 {
   nixpkgs.overlays = [
     (_final: prev: {
-
       qt6Packages = prev.qt6Packages.overrideScope (
         _final': prev': {
           # HACK: no more qt5
@@ -54,7 +53,6 @@
         Related issue: https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware/-/issues/29
         Posible upstream related commit: https://gitlab.com/kernel-firmware/linux-firmware/-/commit/4573c02ca0caf001c5ce5dbb62015d588258588b
       */
-
     })
   ];
 }
