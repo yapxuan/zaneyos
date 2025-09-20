@@ -44,6 +44,11 @@
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     };
 
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -95,6 +100,7 @@
       lix-module,
       yazi,
       nix-index-database,
+      treefmt-nix,
       ...
     }@inputs:
     let
@@ -102,6 +108,7 @@
       host = "nixos";
       username = "puiyq";
       flake_dir = "/home/${username}/zaneyos";
+      pkgs = import nixpkgs { inherit system; };
     in
     {
       packages = nixpkgs.lib.genAttrs [ system ] (system: {
@@ -117,7 +124,14 @@
           animeko
           ;
       });
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      templates.treefmt = {
+        path = ./templates/treefmt;
+        description = "Minimal treefmt-nix";
+      };
+      formatter.${system} = treefmt-nix.lib.mkWrapper pkgs ./treefmt.nix;
+      checks.${system} = {
+        treefmt = self.formatter.${system};
+      };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
