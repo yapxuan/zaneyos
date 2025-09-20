@@ -1,6 +1,13 @@
 {
   projectRootFile = "flake.nix";
   programs = {
-    nixfmt.enable = true;
+    alejandra = {
+      enable = true;
+      priority = 0;
+    };
+    nixfmt = {
+      enable = true;
+      priority = 1;
+    };
   };
 }
