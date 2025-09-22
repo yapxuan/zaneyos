@@ -1,4 +1,4 @@
-{ firmware, rust-overlay, ... }:
+{ firmware, inputs, ... }:
 {
   nixpkgs.overlays = [
     (_final: prev: {
@@ -54,6 +54,6 @@
         Posible upstream related commit: https://gitlab.com/kernel-firmware/linux-firmware/-/commit/4573c02ca0caf001c5ce5dbb62015d588258588b
       */
     })
-    rust-overlay.overlays.default
+    inputs.rust-overlay.overlays.default
   ];
 }

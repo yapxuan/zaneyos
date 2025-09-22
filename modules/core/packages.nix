@@ -105,12 +105,15 @@
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
     ripgrep # Improved Grep
-    (rust-bin.stable.latest.default.override {
-      extensions = [
-        "rust-analyzer"
-        "rust-src"
-      ];
-    })
+    (rust-bin.selectLatestNightlyWith (
+      toolchain:
+      toolchain.default.override {
+        extensions = [
+          "rust-analyzer"
+          "rust-src"
+        ];
+      }
+    ))
     socat # Needed For Screenshots
     sox # audio support for FFMPEG
     inputs.swww.packages.${pkgs.system}.swww

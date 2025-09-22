@@ -6,6 +6,7 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -140,18 +141,6 @@
               username
               host
               flake_dir
-              mysecrets
-              agenix
-              nh
-              hyprland
-              swww
-              chaotic
-              nur
-              lix
-              lix-module
-              yazi
-              nix-index-database
-              rust-overlay
               ;
             profile = "amd";
             firmware = import inputs.mt7921e-firmware {
