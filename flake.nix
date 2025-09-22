@@ -2,9 +2,14 @@
   description = "ZaneyOS";
 
   inputs = {
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
 
     lix = {
@@ -62,6 +67,7 @@
     swww = {
       url = "github:LGFae/swww";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
 
     hyprland = {
@@ -96,6 +102,7 @@
       yazi,
       nix-index-database,
       treefmt-nix,
+      rust-overlay,
       ...
     }@inputs:
     let
@@ -106,7 +113,7 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          (final: prev: {
+          (final: _prev: {
             animeko = final.callPackage ./pkgs/animeko { };
           })
         ];
@@ -144,6 +151,7 @@
               lix-module
               yazi
               nix-index-database
+              rust-overlay
               ;
             profile = "amd";
             firmware = import inputs.mt7921e-firmware {

@@ -81,9 +81,7 @@
     element-desktop
     bottom # btop like util
     brightnessctl # For Screen Brightness Control
-    cargo
     clang
-    clippy
     curlie
     duf # Utility For Viewing Disk Usage In Terminal
     dysk # disk usage util
@@ -107,9 +105,12 @@
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
     ripgrep # Improved Grep
-    rustc
-    rustfmt
-    rust-analyzer
+    (rust-bin.stable.latest.default.override {
+      extensions = [
+        "rust-analyzer"
+        "rust-src"
+      ];
+    })
     socat # Needed For Screenshots
     sox # audio support for FFMPEG
     inputs.swww.packages.${pkgs.system}.swww
