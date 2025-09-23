@@ -181,7 +181,7 @@
           enable = true;
           lsp = {
             enable = true;
-            package = inputs.zls.packages.${system}.default;
+            package = inputs.zls.packages.${system}.zls;
           };
         };
         go = {

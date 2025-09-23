@@ -5,6 +5,7 @@
     zls = {
       url = "github:zigtools/zls";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.zig-overlay.follows = "zig";
     };
 
     prismlauncher = {
@@ -19,12 +20,12 @@
     };
 
     zon2nix = {
-      url = "github:jcollie/zon2nix?rev=bf983aa90ff169372b9fa8c02e57ea75e0b42245";
+      url = "github:jcollie/zon2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zig = {
-      url = "github:mitchellh/zig-overlay";
+      url = "github:silversquirl/zig-flake/4ce776e231ed72daee11a4d33459834517e0f3e4"; # 20250920 compat with zls
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

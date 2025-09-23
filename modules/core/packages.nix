@@ -105,8 +105,7 @@
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
     ripgrep # Improved Grep
-    inputs.zls.inputs.zig-overlay.packages.${pkgs.system}.master
-    #zigpkgs.master
+    inputs.zig.packages.${system}.nightly
     (rust-bin.selectLatestNightlyWith (
       toolchain:
       toolchain.default.override {
