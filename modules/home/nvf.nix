@@ -167,39 +167,44 @@
             };
           };
           format = {
-            enable = true;
             package = pkgs.nixfmt;
             type = "nixfmt";
           };
         };
-        clang.enable = true;
+        clang = {
+          enable = true;
+          cHeader = true;
+          lsp.enable = true;
+        };
         zig.enable = true;
+        go = {
+          enable = true;
+          lsp.enable = true;
+        };
         python = {
           enable = true;
           lsp.enable = true;
           format = {
-            enable = true;
             package = pkgs.ruff;
             type = "ruff";
           };
         };
-        markdown.enable = true;
-        ts = {
-          enable = true;
-          lsp.enable = true;
-          format.type = "prettierd";
-          extensions.ts-error-translator.enable = true;
-        };
-        html.enable = true;
-        lua.enable = true;
-        css = {
-          enable = true;
-          format.type = "prettierd";
-        };
-        typst.enable = true;
+        #markdown.enable = true;
+        #ts = {
+        #enable = true;
+        #lsp.enable = true;
+        #format.type = "prettierd";
+        #extensions.ts-error-translator.enable = true;
+        #};
+        #html.enable = true;
+        #lua.enable = true;
+        #css = {
+        # enable = true;
+        # format.type = "prettierd";
+        #};
+        #typst.enable = true;
         rust = {
           enable = true;
-          treesitter.enable = true;
           lsp = {
             enable = true;
             package = pkgs.rust-bin.selectLatestNightlyWith (
