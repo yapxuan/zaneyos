@@ -5,6 +5,7 @@
   profile,
   flake_dir,
   inputs,
+  system,
   ...
 }:
 let
@@ -22,6 +23,7 @@ in
         profile
         flake_dir
         inputs
+        system
         ;
     };
     users.${username} = {

@@ -4,6 +4,7 @@
   flake_dir,
   inputs,
   host,
+  system,
   ...
 }:
 {
@@ -176,7 +177,13 @@
           cHeader = true;
           lsp.enable = true;
         };
-        zig.enable = true;
+        zig = {
+          enable = true;
+          lsp = {
+            enable = true;
+            package = inputs.zls.packages.${system}.default;
+          };
+        };
         go = {
           enable = true;
           lsp.enable = true;

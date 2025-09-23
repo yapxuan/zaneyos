@@ -2,6 +2,32 @@
   description = "ZaneyOS";
 
   inputs = {
+    zls = {
+      url = "github:zigtools/zls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    prismlauncher = {
+      url = "github:PrismLauncher/PrismLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.zig.follows = "zig";
+    };
+
+    zon2nix = {
+      url = "github:jcollie/zon2nix?rev=bf983aa90ff169372b9fa8c02e57ea75e0b42245";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zig = {
+      url = "github:mitchellh/zig-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -91,10 +117,14 @@
     {
       self,
       mysecrets,
+      zls,
+      prismlauncher,
       agenix,
       nixpkgs,
       nh,
+      zig,
       hyprland,
+      ghostty,
       swww,
       chaotic,
       nur,
@@ -141,6 +171,7 @@
               username
               host
               flake_dir
+              system
               ;
             profile = "amd";
             firmware = import inputs.mt7921e-firmware {
