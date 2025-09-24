@@ -2,6 +2,12 @@
   description = "ZaneyOS";
 
   inputs = {
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
+
     zls = {
       url = "github:zigtools/zls";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -121,6 +127,7 @@
   outputs =
     {
       self,
+      neovim-nightly-overlay,
       mysecrets,
       zls,
       prismlauncher,

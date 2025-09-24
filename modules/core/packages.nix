@@ -20,6 +20,7 @@
     zsh.enable = true;
     neovim = {
       enable = true;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       defaultEditor = true;
     };
     firefox.enable = true; # Firefox is not installed by default
