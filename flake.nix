@@ -17,6 +17,7 @@
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.zig.follows = "zig";
+      inputs.zon2nix.follows = "zon2nix";
     };
 
     zon2nix = {
@@ -25,7 +26,9 @@
     };
 
     zig = {
-      url = "github:silversquirl/zig-flake/4ce776e231ed72daee11a4d33459834517e0f3e4"; # 20250920 compat with zls
+      #block untill https://github.com/zigtools/zls/pull/2457 merged
+      #url = "github:silversquirl/zig-flake";
+      url = "github:mitchellh/zig-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,6 +57,7 @@
     agenix = {
       url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
 
     mysecrets = {

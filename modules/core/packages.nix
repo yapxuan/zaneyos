@@ -105,7 +105,8 @@
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
     ripgrep # Improved Grep
-    inputs.zig.packages.${system}.nightly
+    zigpkgs.master
+    #inputs.zig.packages.${system}.nightly block until https://github.com/zigtools/zls/pull/2457 merged
     (rust-bin.selectLatestNightlyWith (
       toolchain:
       toolchain.default.override {
