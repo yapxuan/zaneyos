@@ -11,9 +11,6 @@
     };
 
     kernelParams = [
-      #"zswap.enabled=1" # enables zswap
-      #"zswap.compressor=lz4" # compression algorithm
-      #"zswap.zpool=z3fold"
       "systemd.swap=0"
     ];
 
@@ -27,12 +24,12 @@
       "vm.max_map_count" = 2147483642;
       "kernel.sysrq" = 1; # REISUB
     };
+
+    extraModprobeConfig = ''
+      options mt7921_common disable_clc=1
+    '';
+
     initrd = {
-      #systemd.enable = true;
-      #kernelModules = [
-      # "lz4"
-      # "z3fold"
-      #];
       availableKernelModules = [
         "nvme"
         "xhci_pci"
@@ -41,6 +38,7 @@
         "sd_mod"
       ];
     };
+
     loader.limine = {
       enable = true;
       efiSupport = true;
@@ -52,6 +50,7 @@
             path: guid(d3a7820d-fcf3-4ad3-9468-d6481e4aee50):/EFI/Microsoft/Boot/bootmgfw.efi
       '';
     };
+
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = true;
   };
