@@ -48,7 +48,6 @@ in
       };
 
       extraConfig = {
-        credential.helper = "libsecret";
         # FOSS-friendly settings
         push.default = "simple"; # Match modern push behavior
         init.defaultBranch = "main"; # Set default new branches to 'main'
