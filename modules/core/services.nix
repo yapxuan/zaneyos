@@ -6,6 +6,7 @@
 {
   # Services to start
   services = {
+    fwupd.enable = true;
     btrfs.autoScrub = {
       enable = true;
       interval = "weekly";
@@ -32,6 +33,8 @@
       rulesProvider = pkgs.ananicy-rules-cachyos_git;
     };
     #onedrive.enable = true;
+    dbus.implementation = "broker";
+    pipewire.lowLatency.enable = true;
     swapspace.enable = true;
     speechd.enable = false;
     libinput.enable = true; # Input Handling

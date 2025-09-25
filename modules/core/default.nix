@@ -31,5 +31,6 @@
     inputs.nur.modules.nixos.default
     inputs.agenix.nixosModules.default
     inputs.lix-module.nixosModules.default
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 }

@@ -2,6 +2,11 @@
   description = "ZaneyOS";
 
   inputs = {
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,9 +26,11 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.zig.follows = "zig";
-      inputs.zon2nix.follows = "zon2nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        zig.follows = "zig";
+        zon2nix.follows = "zon2nix";
+      };
     };
 
     zon2nix = {
@@ -127,25 +134,8 @@
   outputs =
     {
       self,
-      neovim-nightly-overlay,
-      mysecrets,
-      zls,
-      prismlauncher,
-      agenix,
       nixpkgs,
-      nh,
-      zig,
-      hyprland,
-      ghostty,
-      swww,
-      chaotic,
-      nur,
-      lix,
-      lix-module,
-      yazi,
-      nix-index-database,
       treefmt-nix,
-      rust-overlay,
       ...
     }@inputs:
     let
