@@ -51,6 +51,14 @@ in
         owner = "root";
         group = "root";
       };
+      "maxmind_license_key" = {
+        symlink = true;
+        file = "${mysecrets}/maxmind_license_key.age";
+        mode = "0400";
+        owner = "root";
+        group = "root";
+      };
+
     };
   };
 }

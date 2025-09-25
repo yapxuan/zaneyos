@@ -6,6 +6,19 @@
 {
   # Services to start
   services = {
+    geoipupdate = {
+      enable = true;
+      settings = {
+        AccountID = 1231707;
+        DatabaseDirectory = "/var/lib/GeoIP";
+        LicenseKey = config.age.secrets.maxmind_license_key.path;
+        EditionIDs = [
+          "GeoLite2-ASN"
+          "GeoLite2-City"
+          "GeoLite2-Country"
+        ];
+      };
+    };
     fwupd.enable = true;
     btrfs.autoScrub = {
       enable = true;
