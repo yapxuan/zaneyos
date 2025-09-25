@@ -5,6 +5,7 @@
 }:
 {
   home.shell.enableZshIntegration = true;
+  programs.carapace.enable = true;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
