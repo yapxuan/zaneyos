@@ -12,10 +12,5 @@
     geoProviderUrl = "https://beacondb.net/v1/geolocate";
     submissionUrl = "https://beacondb.net/v2/geosubmit";
     submissionNick = "geoclue";
-
-    appConfig.trippy = {
-      isAllowed = true;
-      isSystem = false;
-    };
   };
 }
