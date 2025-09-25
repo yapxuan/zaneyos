@@ -66,9 +66,8 @@
       sv = "sudo nvim";
       v = "nvim";
       c = "clear";
+      f = "c && fastfetch";
       fr = "nh os switch";
-      fu = "nh os switch --update";
-      zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/releases/latest/download/install-zaneyos.sh)";
       ncg = "nh clean all";
       cat = "bat";
       man = "batman";
