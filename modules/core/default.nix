@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   imports = [
+    ./location.nix
     ./recorder.nix
     ./secrets
     ./nix-ld.nix
