@@ -8,6 +8,7 @@ let
 in
 {
   imports = [
+    ./numbat.nix
     ./service.nix
     ./uv.nix
     ./mpv.nix
