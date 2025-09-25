@@ -8,6 +8,7 @@ let
 in
 {
   imports = [
+    ./trippy.nix
     ./numbat.nix
     ./service.nix
     ./uv.nix

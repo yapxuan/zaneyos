@@ -34,7 +34,7 @@
     };
     hyprlock.enable = true; # resolve pam issue https://gitlab.com/Zaney/zaneyos/-/issues/164
     fuse.userAllowOther = true;
-    mtr.enable = true;
+    trippy.enable = true;
     #adb.enable = true;
     gnupg.agent = {
       enable = true;
@@ -71,7 +71,6 @@
     })
     cryptsetup
     adwaita-icon-theme
-    libsecret
     #nur.repos.ataraxiasjel.waydroid-script
     #waydroid-helper
     onlyoffice-desktopeditors
