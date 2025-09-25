@@ -59,6 +59,7 @@ in
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "pypr &"
+        "clipse -listen"
         "sleep 1.5 && swww img ${stylixImage}"
       ];
 

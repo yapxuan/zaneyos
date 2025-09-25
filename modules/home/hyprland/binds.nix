@@ -8,6 +8,7 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
+      "$modifier,V,exec,kitty --class clipse -e 'clipse'"
       "$modifier,Return,exec,${terminal}"
       "$modifier,K,exec,list-keybinds"
       "$modifier SHIFT,Return,exec,rofi-launcher"
