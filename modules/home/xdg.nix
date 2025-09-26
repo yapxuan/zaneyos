@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   ...
 }:
@@ -11,8 +12,8 @@
     };
     portal = {
       enable = lib.mkForce true;
-      extraPortals = [ inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland ];
-      configPackages = [ inputs.hyprland.packages.x86_64-linux.hyprland ];
+      extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
+      configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
     };
   };
 }

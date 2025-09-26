@@ -21,7 +21,9 @@ pkgs.writeShellScriptBin "wallsetter" ''
 
   	PREVIOUS=$WALLPAPER
 
-  	${inputs.swww.packages.x86_64-linux.swww}/bin/swww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
+  	${
+     inputs.swww.packages.${pkgs.system}.swww
+   }/bin/swww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
   	sleep $TIMEOUT
   done
 ''

@@ -1,5 +1,5 @@
 {
-  #pkgs,
+  pkgs,
   inputs,
   ...
 }:
@@ -7,10 +7,10 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
     ];
     configPackages = [
-      inputs.hyprland.packages.x86_64-linux.hyprland
+      inputs.hyprland.packages.${pkgs.system}.hyprland
     ];
   };
   #services = {
