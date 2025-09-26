@@ -2,7 +2,7 @@
   description = "ZaneyOS";
 
   inputs = {
-    flake-utils.follows = "lix-module/flake-utils";
+    flake-utils.follows = "yazi/flake-utils";
     flake-compat.follows = "nvf/flake-compat";
     systems.follows = "hyprland/systems";
     gitignore.follows = "hyprland/pre-commit-hooks/gitignore";
@@ -32,9 +32,11 @@
 
     zls = {
       url = "github:zigtools/zls";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.zig-overlay.follows = "zig";
-      inputs.gitignore.follows = "gitignore";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        zig-overlay.follows = "zig";
+        gitignore.follows = "gitignore";
+      };
     };
 
     prismlauncher = {
@@ -79,21 +81,22 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         rust-overlay.follows = "rust-overlay";
-        flake-utils.follows = "flake-utils";
       };
     };
 
-    lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
+    #lix = {
+    #  url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+    #  flake = false;
+    #};
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-      inputs.flake-utils.inputs.systems.follows = "systems";
-    };
+    #lix-module = {
+    # url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+    # inputs = {
+    #    nixpkgs.follows = "nixpkgs";
+    #   lix.follows = "lix";
+    #   flake-utils.inputs.systems.follows = "systems";
+    # };
+    #};
 
     ragenix = {
       url = "github:yaxitech/ragenix";
@@ -106,9 +109,11 @@
     };
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.systems.follows = "systems";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        systems.follows = "systems";
+      };
     };
 
     mysecrets = {

@@ -30,7 +30,7 @@
       enableSSHSupport = true;
     };
   };
-
+  nix.package = pkgs.nixVersions.git;
   nixpkgs = {
     config = {
       rocmSupport = true;
