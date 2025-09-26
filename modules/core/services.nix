@@ -6,6 +6,10 @@
 {
   # Services to start
   services = {
+    ntpd-rs = {
+      enable = true;
+      useNetworkingTimeServers = true;
+    };
     geoipupdate = {
       enable = true;
       settings = {
