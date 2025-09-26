@@ -2,21 +2,39 @@
   description = "ZaneyOS";
 
   inputs = {
+    flake-utils.follows = "lix-module/flake-utils";
+    flake-compat.follows = "nvf/flake-compat";
+    systems.follows = "hyprland/systems";
+    gitignore.follows = "hyprland/pre-commit-hooks/gitignore";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.treefmt-nix.follows = "treefmt-nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        treefmt-nix.follows = "treefmt-nix";
+        flake-compat.follows = "flake-compat";
+        git-hooks.inputs.flake-compat.follows = "flake-compat";
+        git-hooks.inputs.gitignore.follows = "gitignore";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     zls = {
       url = "github:zigtools/zls";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.zig-overlay.follows = "zig";
+      inputs.gitignore.follows = "gitignore";
     };
 
     prismlauncher = {
@@ -30,6 +48,8 @@
         nixpkgs.follows = "nixpkgs";
         zig.follows = "zig";
         zon2nix.follows = "zon2nix";
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
       };
     };
 
@@ -42,7 +62,11 @@
       #block untill https://github.com/zigtools/zls/pull/2457 merged
       #url = "github:silversquirl/zig-flake";
       url = "github:mitchellh/zig-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     rust-overlay = {
@@ -52,8 +76,11 @@
 
     yazi = {
       url = "github:sxyazi/yazi";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     lix = {
@@ -65,12 +92,23 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
+      inputs.flake-utils.inputs.systems.follows = "systems";
     };
 
-    agenix = {
+    ragenix = {
       url = "github:yaxitech/ragenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+        flake-utils.follows = "flake-utils";
+        agenix.follows = "agenix";
+      };
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
+      inputs.home-manager.follows = "home-manager";
+      inputs.systems.follows = "systems";
     };
 
     mysecrets = {
@@ -85,8 +123,6 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    mt7921e-firmware.url = "github:nixos/nixpkgs/1273efa67f5ea516eebc3332e538437d2f00b25c";
-
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     treefmt-nix = {
@@ -96,12 +132,21 @@
 
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     stylix = {
       url = "github:danth/stylix/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nur.follows = "nur";
+        systems.follows = "systems";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     nh = {
@@ -111,18 +156,23 @@
 
     swww = {
       url = "github:LGFae/swww";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+        flake-compat.follows = "flake-compat";
+      };
     };
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks.inputs.flake-compat.follows = "flake-compat";
     };
 
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     nix-index-database = {
@@ -176,10 +226,6 @@
               system
               ;
             profile = "amd";
-            firmware = import inputs.mt7921e-firmware {
-              inherit system;
-              config.allowUnfree = true;
-            };
           };
           modules = [
             ./profiles/amd

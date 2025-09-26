@@ -5,11 +5,11 @@
   ...
 }:
 let
-  inherit (inputs) agenix mysecrets;
+  inherit (inputs) ragenix mysecrets;
 in
 {
   imports = [
-    agenix.nixosModules.default
+    ragenix.nixosModules.default
   ];
   age = {
     ageBin = "${pkgs.rage}/bin/rage";
