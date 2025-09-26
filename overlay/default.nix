@@ -1,4 +1,4 @@
-{ firmware, inputs, ... }:
+{ inputs, ... }:
 {
   nixpkgs.overlays = [
     (_final: prev: {

@@ -6,17 +6,6 @@
 }:
 {
   programs = {
-    #partition-manager.enable = true;
-    #appimage = {
-    # enable = true;
-    # binfmt = true;
-    # package = pkgs.appimage-run.override {
-    #   extraPkgs = pkgs: [
-    #     pkgs.ffmpeg
-    #     pkgs.imagemagick
-    #   ];
-    # };
-    #};
     zsh.enable = true;
     neovim = {
       enable = true;
@@ -65,6 +54,7 @@
     teams-for-linux
     #blender-hip
     rage
+    inputs.ragenix.packages.${system}.default
     nix-ld
     (pkgs.bilibili.override {
       commandLineArgs = "--ozone-platform-hint=wayland --enable-wayland-ime --enable-features=UseOzonePlatform";
@@ -81,7 +71,6 @@
     element-desktop
     bottom # btop like util
     brightnessctl # For Screen Brightness Control
-    clang
     curlie
     duf # Utility For Viewing Disk Usage In Terminal
     dysk # disk usage util
@@ -98,7 +87,7 @@
     mpv # Incredible Video Player
     nixfmt # Nix Formatter
     nix-output-monitor
-    nixpkgs-review
+    (nixpkgs-review.override { withNom = true; })
     nixd
     pavucontrol # For Editing Audio Levels & Devices
     pciutils # Collection Of Tools For Inspecting PCI Devices
