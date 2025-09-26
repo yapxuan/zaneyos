@@ -51,6 +51,8 @@ in
     ignoreShellProgramCheck = true;
   };
   nix.settings = {
+    cores = 8;
+    max-jobs = 2;
     allowed-users = [ "${username}" ];
     system-features = [
       "benchmark"
