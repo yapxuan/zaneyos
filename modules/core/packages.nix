@@ -68,7 +68,7 @@
     #winetricks
     #wineWowPackages.stagingFull
     openssl
-    element-desktop
+    (pkgs.element-desktop.override { commandLineArgs = "--password-store=gnome-libsecret"; })
     bottom # btop like util
     brightnessctl # For Screen Brightness Control
     curlie
