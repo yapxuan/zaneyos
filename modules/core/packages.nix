@@ -47,7 +47,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    python313Packages.python
+    exercism
     inputs.self.packages.${system}.animeko
     discord
     xarchiver
@@ -94,17 +94,6 @@
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
     ripgrep # Improved Grep
-    zigpkgs.master
-    #inputs.zig.packages.${system}.nightly block until https://github.com/zigtools/zls/pull/2457 merged
-    (rust-bin.selectLatestNightlyWith (
-      toolchain:
-      toolchain.default.override {
-        extensions = [
-          "rust-analyzer"
-          "rust-src"
-        ];
-      }
-    ))
     socat # Needed For Screenshots
     sox # audio support for FFMPEG
     inputs.swww.packages.${pkgs.system}.swww

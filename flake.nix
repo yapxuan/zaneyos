@@ -191,6 +191,8 @@
       self,
       nixpkgs,
       treefmt-nix,
+      rust-overlay,
+      zig,
       ...
     }@inputs:
     let
@@ -200,16 +202,23 @@
       flake_dir = "/home/${username}/zaneyos";
       pkgs = import nixpkgs {
         inherit system;
+        config = {
+          rocmSupport = true;
+          allowUnfree = true;
+        };
         overlays = [
           (final: _prev: {
             animeko = final.callPackage ./pkgs/animeko { };
+            rustlings = pkgs.callPackage ./pkgs/rustlings { };
           })
+          rust-overlay.overlays.default
+          zig.overlays.default
         ];
       };
     in
     {
       packages.${system} = {
-        inherit (pkgs) animeko;
+        inherit (pkgs) animeko rustlings;
       };
       templates.treefmt = {
         path = ./templates/treefmt;
@@ -234,6 +243,51 @@
           };
           modules = [
             ./profiles/amd
+          ];
+        };
+      };
+      devShells.${system} = {
+        zig = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+          packages = with pkgs; [
+            zigpkgs.master
+          ];
+        };
+        go = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+          packages = with pkgs; [
+            go
+          ];
+          shellHook = ''
+            export CC=clang
+            export CXX=clang++
+            export CGO_CFLAGS="-O2 -march=native -g"
+            export CGO_CXXFLAGS="-O2 -march=native -g"
+            export GOAMD64=v4
+          '';
+        };
+        python = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+          packages = with pkgs; [
+            (python3.override {
+              enableOptimizations = true;
+              reproducibleBuild = false;
+            })
+          ];
+        };
+        c = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+          buildInputs = [
+            pkgs.SDL2
+          ];
+        };
+        rust = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+          packages = [
+            self.packages.${system}.rustlings
+            (pkgs.rust-bin.selectLatestNightlyWith (
+              toolchain:
+              toolchain.default.override {
+                extensions = [
+                  "llvm-tools"
+                ];
+              }
+            ))
           ];
         };
       };
