@@ -41,6 +41,7 @@
     };
     cachix-watch-store = {
       enable = true;
+      verbose = true;
       cacheName = "puiyq";
       cachixTokenFile = config.age.secrets.cachix.path;
     };
