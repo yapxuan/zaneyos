@@ -128,7 +128,10 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -271,6 +274,7 @@
               reproducibleBuild = false;
             })
           ];
+          shellHook = ''export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH'';
         };
         c = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
           buildInputs = [

@@ -1,12 +1,13 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follow = "nixpkgs";
+    };
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       treefmt-nix,
       ...
@@ -17,6 +18,5 @@
     in
     {
       formatter.${system} = treefmt-nix.lib.mkWrapper pkgs ./treefmt.nix;
-      checks.${system}.treefmt = self.formatter.${system};
     };
 }
