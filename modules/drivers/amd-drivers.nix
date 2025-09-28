@@ -27,11 +27,9 @@ in
             hipcc
             rocrand
             hipsparse
-            migraphx
             half
             hsakmt
             rccl
-            miopen
             amdsmi
             rocm-smi
           ];
