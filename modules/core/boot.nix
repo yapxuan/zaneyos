@@ -76,10 +76,6 @@
       "thunderbolt"
     ];
 
-    extraModprobeConfig = ''
-      options mt7921_common disable_clc=1
-    '';
-
     initrd = {
       availableKernelModules = [
         "nvme"

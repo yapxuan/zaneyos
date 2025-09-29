@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ firmware, inputs, ... }:
 {
   nixpkgs.overlays = [
     (_final: prev: {
@@ -46,6 +46,7 @@
           {
             mesonFlags = [ (prev.lib.mesonEnable "wallpaper" false) ];
           };
+      inherit (firmware) linux-firmware;
     })
     inputs.rust-overlay.overlays.default
     inputs.ghostty.overlays.default

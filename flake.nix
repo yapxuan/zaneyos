@@ -2,6 +2,7 @@
   description = "ZaneyOS";
 
   inputs = {
+    firmware.url = "github:nixos/nixpkgs/1273efa67f5ea516eebc3332e538437d2f00b25c";
     flake-utils.follows = "yazi/flake-utils";
     flake-compat.follows = "nvf/flake-compat";
     systems.follows = "hyprland/systems";
@@ -243,6 +244,9 @@
               system
               ;
             profile = "amd";
+            firmware = import inputs.firmware {
+              inherit system;
+            };
           };
           modules = [
             ./profiles/amd
