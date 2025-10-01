@@ -289,12 +289,13 @@
           packages = [
             self.packages.${system}.rustlings
             (pkgs.rust-bin.selectLatestNightlyWith (
-              toolchain:
-              toolchain.default.override {
-                extensions = [
-                  "llvm-tools"
-                ];
-              }
+              toolchain: toolchain.default
+              #.override {
+              #  extensions = [
+              #   "llvm-tools"
+              #   "rust-src"
+              # ];
+              #}
             ))
           ];
         };
