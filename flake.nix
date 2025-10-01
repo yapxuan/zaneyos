@@ -213,7 +213,6 @@
         overlays = [
           (final: _prev: {
             animeko = final.callPackage ./pkgs/animeko { };
-            rustlings = pkgs.callPackage ./pkgs/rustlings { };
           })
           rust-overlay.overlays.default
           zig.overlays.default
@@ -222,7 +221,7 @@
     in
     {
       packages.${system} = {
-        inherit (pkgs) animeko rustlings;
+        inherit (pkgs) animeko;
       };
       templates.treefmt = {
         path = ./templates/treefmt;
@@ -287,7 +286,6 @@
         };
         rust = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
           packages = [
-            self.packages.${system}.rustlings
             (pkgs.rust-bin.selectLatestNightlyWith (
               toolchain: toolchain.default
               #.override {

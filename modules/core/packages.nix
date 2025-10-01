@@ -47,6 +47,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    rustlings
     exercism
     inputs.self.packages.${system}.animeko
     discord
