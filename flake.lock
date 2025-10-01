@@ -546,11 +546,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1759169434,
-        "narHash": "sha256-1u6kq88ICeE9IiJPditYa248ZoEqo00kz6iUR+jLvBQ=",
+        "lastModified": 1759313089,
+        "narHash": "sha256-hICmr0a1nH3gJ4hbzc9cIoe7FFKloq5vsOnBMr3wfg4=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "38c1e72c9d81fcdad8f173e06102a5da18836230",
+        "rev": "8c54c9b41226e39564505442245deee1167a5f08",
         "type": "github"
       },
       "original": {
@@ -849,26 +849,6 @@
         "type": "github"
       }
     },
-    "nh": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1759134674,
-        "narHash": "sha256-7NaMOQpxRFjjUGOLZmoAwb/5dDQQTFn3NuzfZHJZzJ8=",
-        "owner": "nix-community",
-        "repo": "nh",
-        "rev": "f3920fd9354902815db2b51c7b3c698f65b62e95",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nh",
-        "type": "github"
-      }
-    },
     "nix-gaming": {
       "inputs": {
         "flake-parts": [
@@ -977,11 +957,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759310087,
-        "narHash": "sha256-vDwWHcGTEuIH2aq4nl0/GXji+3hvqghLcKrlpKJYka0=",
+        "lastModified": 1759314389,
+        "narHash": "sha256-LEiItVfZ+dX9SiGjFSIutAvFdhU3R0lNeoxqsEp2nPg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "401e35bcd025327acb83df93dd04c9f43265ff6b",
+        "rev": "93d454a976a606063c18d49da8aff4801b6be632",
         "type": "github"
       },
       "original": {
@@ -1135,7 +1115,6 @@
         "hyprland": "hyprland",
         "mysecrets": "mysecrets",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nh": "nh",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",

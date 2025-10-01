@@ -158,11 +158,6 @@
       };
     };
 
-    nh = {
-      url = "github:nix-community/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     swww = {
       url = "github:LGFae/swww";
       inputs = {
