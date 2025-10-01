@@ -2,7 +2,7 @@
   inputs = {
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follow = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
