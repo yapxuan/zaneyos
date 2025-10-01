@@ -32,7 +32,6 @@
   # Includes alternates such as:
   # Just uncomment the one you want and comment out the others
 
-  #waybarChoice = ../../modules/home/waybar/Jerry-waybars.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-nekodyke.nix;

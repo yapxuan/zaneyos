@@ -21,7 +21,7 @@
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
-    hyprlock.enable = true; # resolve pam issue https://gitlab.com/Zaney/zaneyos/-/issues/164
+    hyprlock.enable = true;
     fuse.userAllowOther = true;
     trippy.enable = true;
     #adb.enable = true;
@@ -47,7 +47,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    exercism
     inputs.self.packages.${system}.animeko
     discord
     xarchiver

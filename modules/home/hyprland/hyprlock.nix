@@ -18,7 +18,7 @@
       ];
       image = [
         {
-          path = "/home/${username}/Pictures/Wallpapers/AnimeGirlNightSky.jpg"; # .config/face.jpg";
+          path = "/home/${username}/Pictures/Wallpapers/AnimeGirlNightSky.jpg";
           size = 150;
           border_size = 4;
           border_color = "rgb(0C96F9)";

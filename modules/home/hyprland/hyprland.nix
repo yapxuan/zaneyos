@@ -32,8 +32,6 @@ in
       source = ../../../wallpapers;
       recursive = true;
     };
-    ".face.icon".source = ./face.jpg;
-    ".config/face.jpg".source = ./face.jpg;
   };
   wayland.windowManager.hyprland = {
     enable = true;
@@ -145,7 +143,7 @@ in
 
       ecosystem = {
         no_donation_nag = true;
-        no_update_news = false;
+        no_update_news = true;
       };
 
       cursor = {
