@@ -250,12 +250,12 @@
       };
       devShells.${system} = {
         zig = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-          packages = with pkgs; [
+          nativeBuildInputs = with pkgs; [
             zigpkgs.master
           ];
         };
         go = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-          packages = with pkgs; [
+          nativeBuildInputs = with pkgs; [
             go
           ];
           shellHook = ''
@@ -267,7 +267,7 @@
           '';
         };
         python = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-          packages = with pkgs; [
+          nativeBuildInputs = with pkgs; [
             (python3.override {
               enableOptimizations = true;
               reproducibleBuild = false;
@@ -281,8 +281,10 @@
           ];
         };
         rust = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-          packages = [
+          buildInputs = [
             self.packages.${system}.rustlings
+          ];
+          nativeBuildInputs = [
             (pkgs.rust-bin.selectLatestNightlyWith (
               toolchain: toolchain.default
               #.override {
