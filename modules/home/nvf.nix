@@ -182,7 +182,9 @@
           enable = true;
           lsp = {
             enable = true;
-            package = inputs.zls.packages.${system}.zls;
+            package = inputs.zls.packages.${system}.zls.overrideAttrs (_: {
+              doCheck = false;
+            }); # FIXME
           };
         };
         go = {
