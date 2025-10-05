@@ -2,6 +2,7 @@
 {
   imports = [
     #./location.nix
+    #./duckdns.nix
     ./recorder.nix
     ./secrets
     ./nix-ld.nix

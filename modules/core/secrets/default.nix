@@ -58,7 +58,13 @@ in
         owner = "root";
         group = "root";
       };
-
+      "duckdns" = {
+        symlink = true;
+        file = "${mysecrets}/duckdns.age";
+        mode = "0400";
+        owner = "root";
+        group = "root";
+      };
     };
   };
 }
