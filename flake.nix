@@ -248,6 +248,11 @@
         };
       };
       devShells.${system} = {
+        fortran = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            gfortran
+          ];
+        };
         zig = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
           nativeBuildInputs = with pkgs; [
             zigpkgs.master
