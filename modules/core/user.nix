@@ -59,7 +59,7 @@ in
       "big-parallel"
       "kvm"
       "nixos-test"
-      "gcc-znver4"
+      "gccarch-znver4"
     ];
   };
   #specialisation = {
