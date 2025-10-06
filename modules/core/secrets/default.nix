@@ -65,6 +65,20 @@ in
         owner = "root";
         group = "root";
       };
+      "atuin_key" = {
+        symlink = true;
+        file = "${mysecrets}/atuin_key.age";
+        mode = "0400";
+        owner = "puiyq";
+        group = "users";
+      };
+      "atuin_session" = {
+        symlink = true;
+        file = "${mysecrets}/atuin_session.age";
+        mode = "0400";
+        owner = "puiyq";
+        group = "users";
+      };
     };
   };
 }

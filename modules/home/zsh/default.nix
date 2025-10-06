@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  osConfig,
   ...
 }:
 {
@@ -10,6 +11,18 @@
     nix-your-shell = {
       enable = true;
       nix-output-monitor.enable = true;
+    };
+    atuin = {
+      enable = true;
+      flags = [ "--disable-ctrl-r" ];
+      settings = {
+        auto_sync = true;
+        sync_frequency = "5m";
+        sync_address = "https://api.atuin.sh";
+        search_mode = "fuzzy";
+        session_path = osConfig.age.secrets."atuin_session".path;
+        key_path = osConfig.age.secrets."atuin_key".path;
+      };
     };
     zsh = {
       enable = true;
