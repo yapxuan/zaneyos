@@ -55,6 +55,7 @@ _: {
         text = ''auth include login '';
       };
       greetd.enableGnomeKeyring = true;
+      login.enableGnomeKeyring = true;
     };
     sudo-rs = {
       enable = true;

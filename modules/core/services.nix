@@ -51,7 +51,10 @@
       rulesProvider = pkgs.ananicy-rules-cachyos_git;
     };
     #onedrive.enable = true;
-    dbus.implementation = "broker";
+    dbus = {
+      implementation = "broker";
+      packages = [ pkgs.gcr_4 ];
+    };
     pipewire.lowLatency.enable = true;
     swapspace.enable = true;
     speechd.enable = false;
