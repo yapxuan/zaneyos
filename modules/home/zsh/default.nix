@@ -16,7 +16,12 @@
       enable = true;
       flags = [ "--disable-ctrl-r" ];
       settings = {
+        style = "auto";
+        command_chaining = true;
+        enter_accept = true;
+        prefers_reduced_motion = true;
         auto_sync = true;
+        sync.records = true;
         sync_frequency = "5m";
         sync_address = "https://api.atuin.sh";
         search_mode = "fuzzy";
