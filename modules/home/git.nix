@@ -1,6 +1,8 @@
 {
   host,
   pkgs,
+  config,
+  flake_dir,
   ...
 }:
 let
@@ -30,6 +32,13 @@ in
         key = "CCDCA20D4A5F54D004F088A8272D4F26832F8EF8";
         signByDefault = true;
         signer = "${pkgs.gnupg}/bin/gpg";
+      };
+      maintenance = {
+        enable = true;
+        repositories = [
+          "${config.home.homeDirectory}/nixpkgs"
+          "${flake_dir}"
+        ];
       };
       ignores = [
         ".envrc"
