@@ -6,6 +6,7 @@
   flake_dir,
   inputs,
   system,
+  config,
   ...
 }:
 let
@@ -50,17 +51,22 @@ in
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
-  nix.settings = {
-    cores = 8;
-    max-jobs = 2;
-    allowed-users = [ "${username}" ];
-    system-features = [
-      "benchmark"
-      "big-parallel"
-      "kvm"
-      "nixos-test"
-      "gccarch-znver4"
-    ];
+  nix = {
+    settings = {
+      cores = 8;
+      max-jobs = 2;
+      allowed-users = [ "${username}" ];
+      system-features = [
+        "benchmark"
+        "big-parallel"
+        "kvm"
+        "nixos-test"
+        "gccarch-znver4"
+      ];
+    };
+    extraOptions = ''
+      !include ${config.age.secrets.github_token.path}
+    '';
   };
   #specialisation = {
   # heavywork.configuration = {

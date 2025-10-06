@@ -79,6 +79,13 @@ in
         owner = "puiyq";
         group = "users";
       };
+      "github_token" = {
+        symlink = true;
+        file = "${mysecrets}/github_token.age";
+        mode = "0400";
+        owner = "root";
+        group = "root";
+      };
     };
   };
 }
