@@ -132,6 +132,7 @@
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.rust-overlay.follows = "rust-overlay";
+      inputs.home-manager.follows = "home-manager";
     };
 
     treefmt-nix = {
@@ -152,7 +153,7 @@
       url = "github:danth/stylix/master";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        nur.follows = "nur";
+        # nur.follows = "nur";
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
       };
@@ -173,11 +174,11 @@
       inputs.pre-commit-hooks.inputs.flake-compat.follows = "flake-compat";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
+    #nur = {
+    # url = "github:nix-community/NUR";
+    # inputs.nixpkgs.follows = "nixpkgs";
+    # inputs.flake-parts.follows = "flake-parts";
+    #};
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

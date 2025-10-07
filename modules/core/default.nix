@@ -30,7 +30,7 @@
     ./xserver.nix
     inputs.stylix.nixosModules.stylix
     inputs.chaotic.nixosModules.default
-    inputs.nur.modules.nixos.default
+    #inputs.nur.modules.nixos.default
     inputs.ragenix.nixosModules.default
     #inputs.lix-module.nixosModules.default
     inputs.nix-gaming.nixosModules.pipewireLowLatency
