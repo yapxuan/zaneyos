@@ -14,7 +14,6 @@
     enable = true;
 
     settings.vim = {
-      package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.system}.neovim;
       lsp.enable = true;
       vimAlias = true;
       viAlias = true;
@@ -153,6 +152,12 @@
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
+        haskell = {
+          enable = true;
+          lsp = {
+            enable = true;
+          };
+        };
         nix = {
           enable = true;
           lsp = {

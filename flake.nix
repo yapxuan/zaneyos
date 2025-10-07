@@ -19,18 +19,6 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
-        flake-compat.follows = "flake-compat";
-        git-hooks.inputs.flake-compat.follows = "flake-compat";
-        git-hooks.inputs.gitignore.follows = "gitignore";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
     zls = {
       url = "github:zigtools/zls";
       inputs = {
@@ -249,6 +237,13 @@
         };
       };
       devShells.${system} = {
+        haskell = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            ghc
+            cabal-install
+            haskellPackages.haskell-language-server
+          ];
+        };
         fortran = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             gfortran
