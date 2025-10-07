@@ -17,6 +17,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     backupFileExtension = "backup";
+    overwriteBackup = true;
     extraSpecialArgs = {
       inherit
         username
