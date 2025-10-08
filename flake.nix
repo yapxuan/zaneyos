@@ -237,13 +237,6 @@
         };
       };
       devShells.${system} = {
-        haskell = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            ghc
-            cabal-install
-            haskellPackages.haskell-language-server
-          ];
-        };
         fortran = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             gfortran
@@ -274,11 +267,6 @@
             })
           ];
           shellHook = ''export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH'';
-        };
-        c = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-          buildInputs = [
-            pkgs.SDL2
-          ];
         };
         rust = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
           buildInputs = [
