@@ -5,10 +5,12 @@
 }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {
-      mArch = "ZEN4";
-      useLTO = "full";
-    };
+    kernelPackages = pkgs.linuxPackages_cachyos
+    #.cachyOverride {
+    #mArch = "ZEN4";
+    #useLTO = "full";
+    #}
+    ; # FIXME
 
     kernelParams = [
       "systemd.swap=0"
