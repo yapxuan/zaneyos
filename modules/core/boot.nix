@@ -5,12 +5,20 @@
 }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos
-    #.cachyOverride {
-    #mArch = "ZEN4";
-    #useLTO = "full";
-    #}
-    ; # FIXME
+    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {
+      mArch = "ZEN4";
+      #useLTO = "full";
+    }; # FIXME
+
+    kernelPatches = [
+      {
+        name = "fix-clc-underflow";
+        patch = pkgs.fetchpatch {
+          url = "https://lore.kernel.org/linux-mediatek/20251009020158.1923429-1-mingyen.hsieh@mediatek.com/raw";
+          hash = "sha256-BhtGp4YliIIhrqkS09RQfZytKhQwDR3DXM8d7SCJw54=";
+        };
+      }
+    ];
 
     kernelParams = [
       "systemd.swap=0"
