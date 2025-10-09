@@ -204,20 +204,18 @@
             type = "ruff";
           };
         };
-        #markdown.enable = true;
-        #ts = {
-        #enable = true;
-        #lsp.enable = true;
-        #format.type = "prettierd";
-        #extensions.ts-error-translator.enable = true;
-        #};
-        #html.enable = true;
-        #lua.enable = true;
-        #css = {
-        # enable = true;
-        # format.type = "prettierd";
-        #};
-        #typst.enable = true;
+        ts = {
+          enable = true;
+          lsp.enable = true;
+          format.type = "biome";
+          extensions.ts-error-translator.enable = true;
+        };
+        html.enable = true;
+        css = {
+          enable = true;
+          lsp.enable = true;
+          format.type = "biome";
+        };
         rust = {
           enable = true;
           lsp = {
@@ -247,6 +245,9 @@
             '';
           };
         };
+        #markdown.enable = true;
+        #lua.enable = true;
+        #typst.enable = true;
       };
       visuals = {
         nvim-web-devicons.enable = true;

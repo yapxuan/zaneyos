@@ -237,6 +237,9 @@
         };
       };
       devShells.${system} = {
+        ts = pkgs.mkShell {
+          nativeBuildInputs = [ pkgs.bun ];
+        };
         fortran = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             gfortran
