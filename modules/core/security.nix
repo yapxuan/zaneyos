@@ -54,7 +54,7 @@ _: {
       swaylock = {
         text = ''auth include login '';
       };
-      greetd.enableGnomeKeyring = true;
+      sddm.enableGnomeKeyring = true;
       login.enableGnomeKeyring = true;
     };
     sudo-rs = {

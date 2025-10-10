@@ -79,7 +79,10 @@
     ffmpeg # Terminal Video / Audio Editing
     gdu # graphical disk usage
     glow
-    tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
+    kdePackages.qtmultimedia
+    (pkgs.sddm-astronaut.override {
+      embeddedTheme = "hyprland_kath";
+    })
     loupe # For Image Viewing
     jq
     killall # For Killing All Instances Of Programs

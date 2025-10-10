@@ -11,7 +11,7 @@
     ./fcitx5.nix
     ./flatpak.nix
     ./fonts.nix
-    ./greetd.nix
+    ./sddm.nix
     ./hardware.nix
     ./network.nix
     ./nfs.nix
