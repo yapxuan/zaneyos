@@ -2,22 +2,63 @@
   description = "ZaneyOS";
 
   inputs = {
+    # Core dependencies
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Placeholders
     flake-utils.follows = "yazi/flake-utils";
     flake-compat.follows = "nvf/flake-compat";
     systems.follows = "hyprland/systems";
     gitignore.follows = "hyprland/pre-commit-hooks/gitignore";
 
+    # System configuration
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
+    };
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.rust-overlay.follows = "rust-overlay";
+      inputs.home-manager.follows = "home-manager";
+    };
+    stylix = {
+      url = "github:danth/stylix/master";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        flake-parts.follows = "flake-parts";
+        # nur.follows = "nur";
+      };
     };
 
+    # Window manager and related
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks.inputs.flake-compat.follows = "flake-compat";
+    };
+    swww = {
+      url = "github:LGFae/swww";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+        flake-compat.follows = "flake-compat";
+      };
+    };
+
+    # Development tools - Editors and LSP
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        flake-parts.follows = "flake-parts";
+      };
+    };
     zls = {
       url = "github:zigtools/zls";
       inputs = {
@@ -27,27 +68,11 @@
       };
     };
 
-    prismlauncher = {
-      url = "github:PrismLauncher/PrismLauncher";
+    # Development tools - Language toolchains
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        zig.follows = "zig";
-        zon2nix.follows = "zon2nix";
-        flake-compat.follows = "flake-compat";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
-    zon2nix = {
-      url = "github:jcollie/zon2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zig = {
       #block untill https://github.com/zigtools/zls/pull/2457 merged
       #url = "github:silversquirl/zig-flake";
@@ -58,12 +83,12 @@
         flake-utils.follows = "flake-utils";
       };
     };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    zon2nix = {
+      url = "github:jcollie/zon2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Applications
     yazi = {
       url = "github:sxyazi/yazi";
       inputs = {
@@ -71,21 +96,35 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        zig.follows = "zig";
+        zon2nix.follows = "zon2nix";
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    prismlauncher = {
+      url = "github:PrismLauncher/PrismLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
 
-    #lix = {
-    #  url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-    #  flake = false;
-    #};
-
-    #lix-module = {
-    # url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-    # inputs = {
-    #    nixpkgs.follows = "nixpkgs";
-    #   lix.follows = "lix";
-    #   flake-utils.inputs.systems.follows = "systems";
-    # };
-    #};
-
+    # Secrets management
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        systems.follows = "systems";
+      };
+    };
     ragenix = {
       url = "github:yaxitech/ragenix";
       inputs = {
@@ -95,84 +134,41 @@
         agenix.follows = "agenix";
       };
     };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        systems.follows = "systems";
-      };
-    };
-
     mysecrets = {
       url = "git+ssh://git@github.com/yapxuan/nix-secret.git?shallow=1";
       flake = false;
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
+    # Utilities
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs.rust-overlay.follows = "rust-overlay";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
-    stylix = {
-      url = "github:danth/stylix/master";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        # nur.follows = "nur";
-        systems.follows = "systems";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
-    swww = {
-      url = "github:LGFae/swww";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        rust-overlay.follows = "rust-overlay";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.inputs.flake-compat.follows = "flake-compat";
-    };
+    # Alternative package managers
+    #lix = {
+    #  url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+    #  flake = false;
+    #};
+    #lix-module = {
+    # url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+    # inputs = {
+    #    nixpkgs.follows = "nixpkgs";
+    #   lix.follows = "lix";
+    #   flake-utils.inputs.systems.follows = "systems";
+    # };
+    #};
 
     #nur = {
     # url = "github:nix-community/NUR";
     # inputs.nixpkgs.follows = "nixpkgs";
     # inputs.flake-parts.follows = "flake-parts";
     #};
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-
   outputs =
     {
       self,
