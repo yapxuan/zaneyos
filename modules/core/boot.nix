@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
 {
@@ -12,6 +13,11 @@
 
     kernelParams = [
       "systemd.swap=0"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
     ];
 
     kernelModules = [
@@ -77,6 +83,7 @@
     ];
 
     initrd = {
+      verbose = false;
       availableKernelModules = [
         "nvme"
         "xhci_pci"
@@ -99,9 +106,11 @@
     };
 
     loader.efi.canTouchEfiVariables = true;
-    plymouth.enable = true;
-    binfmt.emulatedSystems = [
-      "aarch64-linux"
-    ];
+    consoleLogLevel = 3;
+    plymouth = {
+      enable = true;
+      themePackages = [ pkgs.catppuccin-plymouth ];
+      theme = lib.mkForce "catppuccin-macchiato";
+    };
   };
 }
