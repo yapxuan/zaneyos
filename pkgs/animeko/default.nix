@@ -90,6 +90,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   # copy currentAniBuildConfig from upstream release asset to local.properties
+
   postPatch = ''
     echo "jvm.toolchain.version=21" >> local.properties
     echo "ani.dandanplay.app.id=2qkvdr35cy" >> local.properties
@@ -98,10 +99,23 @@ stdenv.mkDerivation (finalAttrs: {
     echo "ani.analytics.server=https://us.i.posthog.com" >> local.properties
     echo "ani.analytics.key=phc_7uXkMsKVXfFP9ERNbTT5lAHjVLYAskiRiakjxLROrHw" >> local.properties
     echo "kotlin.native.ignoreDisabledTargets=true" >> local.properties
+
     sed -i "s/^version.name=.*/version.name=${finalAttrs.version}/" gradle.properties
     sed -i "s/^package.version=.*/package.version=${finalAttrs.version}/" gradle.properties
+
     substituteInPlace gradle/libs.versions.toml \
       --replace-fail 'antlr-kotlin = "1.0.2"' 'antlr-kotlin = "1.0.3"'
+
+    # --- Auto-detect AniCefApp.kt location and patch it
+    FILE=$(find . -type f -path "*/AniCefApp.kt" | head -n 1 || true)
+    if [ -n "$FILE" ]; then
+      echo "Patching CefLog.init call in $FILE"
+      substituteInPlace "$FILE" \
+        --replace-fail "CefLog.init(jcefConfig.cefSettings)" \
+                       "CefLog.init(jcefConfig.cefSettings.log_file, jcefConfig.cefSettings.log_severity)"
+    else
+      echo "Warning: AniCefApp.kt not found, skipping CefLog patch"
+    fi
   '';
 
   gradleBuildTask = "createReleaseDistributable";
