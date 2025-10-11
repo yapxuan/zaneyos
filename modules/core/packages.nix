@@ -11,7 +11,7 @@
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = true; # Firefox is not installed by default
+    firefox.enable = false; # Firefox is not installed by default
     dconf.enable = true;
     seahorse.enable = true;
     hyprland = {
@@ -48,6 +48,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    firedragon-catppuccin-bin
     inputs.self.packages.${system}.animeko
     discord
     xarchiver
