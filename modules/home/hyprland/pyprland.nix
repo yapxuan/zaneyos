@@ -12,8 +12,7 @@
     animation = "fromTop"
     command = "ghostty --class=com.mitchellh.ghostty-dropterm"
     class = "com.mitchellh.ghostty-dropterm"
-    size = "70% 70%"
+    size = "82% 80%"
     max_size = "1920px 100%"
-    position = "150px 150px"
   '';
 }
