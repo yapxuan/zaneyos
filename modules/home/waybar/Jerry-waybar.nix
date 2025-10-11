@@ -4,7 +4,7 @@
   ...
 }:
 let
-  terminal = "kitty";
+  terminal = "ghostty";
   base00 = "0F1419";
   base01 = "131721";
   base05 = "E6E1CF";

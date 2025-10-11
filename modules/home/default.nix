@@ -33,10 +33,8 @@ in
     ./ghostty.nix
     ./git.nix
     ./gtk.nix
-    # ./helix.nix
     ./htop.nix
     ./hyprland
-    ./kitty.nix
     ./lazygit.nix
     ./nvf.nix
     #./obs-studio.nix

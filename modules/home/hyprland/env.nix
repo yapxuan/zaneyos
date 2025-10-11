@@ -22,13 +22,9 @@
         "GDK_SCALE,1"
         "QT_SCALE_FACTOR,1"
         "EDITOR,nvim"
-        # Setting terminal to kitty so running kitty from rofi
-        # won't launch in xterm. Which is horrible
-        # You can change this to your preferred terminal
-        # ToDo: Pull default terminal from host config
-        # This should not impact bindings, etc
-        "TERMINAL,kitty"
-        "XDG_TERMINAL_EMULATOR,kitty"
+
+        "TERMINAL,ghostty"
+        "XDG_TERMINAL_EMULATOR,ghostty"
       ];
     };
   };

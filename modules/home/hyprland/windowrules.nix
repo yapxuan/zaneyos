@@ -2,10 +2,10 @@
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
-        "float, class:^(clipse)$"
-        "size 70% 70%, class:^(clipse)$"
+        "float, title:^(Clipse)$"
+        "size 70% 70%, title:^(Clipse)$"
         "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
-        "tag +terminal, class:^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm)$"
+        "tag +terminal, class:^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty)$"
         "tag +browser, class:^(Brave-browser(-beta|-dev|-unstable)?)$"
         "tag +browser, class:^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr)$"
         "tag +browser, class:^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$"
@@ -14,7 +14,7 @@
         "tag +projects, class:^(VSCode|code-url-handler)$"
         "tag +im, class:^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$"
         "tag +im, class:^([Ff]erdium)$"
-        "tag +im, class:^([Ww]hatsapp-for-linux)$"
+        "tag +im, class:^(ZapZap)$"
         "tag +im, class:^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$"
         "tag +im, class:^(teams-for-linux)$"
         "tag +games, class:^(gamescope)$"
