@@ -8,7 +8,8 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$modifier,V,exec,ghostty --title='Clipse' -e clipse"
+      "$modifier,T,exec,pypr toggle term"
+      "$modifier,V,exec,ghostty --class=com.savedra1.clipse --title=Clipse -e clipse"
       "$modifier,Return,exec,${terminal}"
       "$modifier,K,exec,list-keybinds"
       "$modifier SHIFT,Return,exec,rofi-launcher"
@@ -16,7 +17,7 @@ in
       "$modifier ALT,W,exec,wallsetter"
       "$modifier SHIFT,N,exec,swaync-client -rs"
       "$modifier,W,exec,${browser}"
-      "$modifier,Y,exec,ghostty --title='Yazi' -e yazi"
+      "$modifier,Y,exec,ghostty --title=Yazi -e yazi"
       "$modifier,E,exec,emopicker9000"
       "$modifier,S,exec,screenshootin"
       "$modifier,D,exec,discord"
