@@ -48,7 +48,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    #inputs.self.packages.${system}.animeko # FIXME
+    inputs.self.packages.${system}.animeko
     discord
     xarchiver
     teams-for-linux
