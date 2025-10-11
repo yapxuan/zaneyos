@@ -5,7 +5,7 @@
 }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {
+    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride {
       mArch = "ZEN4";
       #useLTO = "full";
     }; # FIXME
