@@ -86,6 +86,13 @@ in
         owner = "root";
         group = "root";
       };
+      "gmail_app_password" = {
+        symlink = true;
+        file = "${mysecrets}/gmail_app_password.age";
+        mode = "0400";
+        owner = "puiyq";
+        group = "users";
+      };
     };
   };
 }

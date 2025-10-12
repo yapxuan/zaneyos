@@ -81,7 +81,6 @@
         "90"
         "--perf"
         "512"
-        "--verbose"
       ];
     };
     gnome.gnome-keyring = {
@@ -91,7 +90,13 @@
     envfs.enable = true;
     smartd = {
       enable = true;
-      autodetect = true;
+      notifications = {
+        mail = {
+          enable = true;
+          sender = "puiyongqing@gmail.com";
+          recipient = "puiyongqing@gmail.com";
+        };
+      };
     };
     pipewire = {
       enable = true;
