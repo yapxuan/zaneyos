@@ -8,9 +8,8 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$modifier,T,exec,pypr toggle term"
       "$modifier,V,exec,ghostty --class=com.savedra1.clipse --title=Clipse -e clipse"
-      "$modifier,Return,exec,${terminal}"
+      "$modifier,Return,exec,${terminal} +new-window"
       "$modifier,K,exec,list-keybinds"
       "$modifier SHIFT,Return,exec,rofi-launcher"
       "$modifier SHIFT,W,exec,web-search"

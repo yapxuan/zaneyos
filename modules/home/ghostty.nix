@@ -25,7 +25,28 @@
       gtk-single-instance = true;
       unfocused-split-opacity = 0.5;
       quick-terminal-position = "center";
+      quit-after-last-window-closed = true;
+      quit-after-last-window-closed-delay = "5m";
       shell-integration-features = "cursor,sudo";
+    };
+  };
+  systemd.user.services."app-com.mitchellh.ghostty" = {
+    Unit = {
+      Description = "Ghostty background daemon";
+      After = [
+        "graphical-session.target"
+        "dbus.socket"
+      ];
+      Requires = [ "dbus.socket" ];
+    };
+    Service = {
+      Type = "notify-reload";
+      ReloadSignal = "SIGUSR2";
+      BusName = "com.mitchellh.ghostty";
+      ExecStart = "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true --initial-window=false";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }
