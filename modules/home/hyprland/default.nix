@@ -11,6 +11,5 @@ in
     ./hyprland.nix
     ./hyprlock.nix
     ./windowrules.nix
-    ./pyprland.nix
   ];
 }
