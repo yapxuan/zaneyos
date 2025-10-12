@@ -48,6 +48,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    libsecret
     firedragon-catppuccin-bin
     inputs.self.packages.${system}.animeko
     discord
