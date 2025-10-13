@@ -39,7 +39,6 @@
       # HACK:
       xdg-desktop-portal-gtk =
         (prev.xdg-desktop-portal-gtk.override {
-          gnome-settings-daemon = null;
           gnome-desktop = null;
           gsettings-desktop-schemas = null;
         }).overrideAttrs
