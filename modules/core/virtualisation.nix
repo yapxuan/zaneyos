@@ -25,5 +25,7 @@
   environment.systemPackages = with pkgs; [
     virt-viewer # View Virtual Machines
     podman-compose # start group of containers for dev
+    #nur.repos.ataraxiasjel.waydroid-script
+    #waydroid-helper
   ];
 }

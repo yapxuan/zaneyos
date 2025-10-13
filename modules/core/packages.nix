@@ -48,7 +48,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    libsecret
     firedragon-catppuccin-bin
     inputs.self.packages.${system}.animeko
     discord
@@ -56,20 +55,15 @@
     teams-for-linux
     #blender-hip
     rage
-    inputs.ragenix.packages.${system}.default
-    nix-ld
     (pkgs.bilibili.override {
       commandLineArgs = "--ozone-platform-hint=wayland --enable-wayland-ime --enable-features=UseOzonePlatform";
     })
     cryptsetup
     adwaita-icon-theme
-    #nur.repos.ataraxiasjel.waydroid-script
-    #waydroid-helper
     onlyoffice-desktopeditors
     varia
     #winetricks
     #wineWowPackages.stagingFull
-    openssl
     (pkgs.element-desktop.override { commandLineArgs = "--password-store=gnome-libsecret"; })
     bottom # btop like util
     brightnessctl # For Screen Brightness Control
@@ -81,19 +75,13 @@
     ffmpeg # Terminal Video / Audio Editing
     gdu # graphical disk usage
     glow
-    kdePackages.qtmultimedia
-    (pkgs.sddm-astronaut.override {
-      embeddedTheme = "hyprland_kath";
-    })
     loupe # For Image Viewing
     jq
     killall # For Killing All Instances Of Programs
     libnotify # For Notifications
     mpv # Incredible Video Player
-    nixfmt # Nix Formatter
     nix-output-monitor
     (nixpkgs-review.override { withNom = true; })
-    nixd
     pavucontrol # For Editing Audio Levels & Devices
     pciutils # Collection Of Tools For Inspecting PCI Devices
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
@@ -115,7 +103,6 @@
 
       # Change Java runtimes available to Prism Launcher
       jdks = [
-        #graalvm-ce
         zulu8
         zulu17
         zulu

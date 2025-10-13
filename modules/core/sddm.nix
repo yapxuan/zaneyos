@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.displayManager.sddm = {
     enable = true;
@@ -10,4 +11,10 @@
       };
     };
   };
+  environment.systemPackages = [
+    pkgs.kdePackages.qtmultimedia
+    (pkgs.sddm-astronaut.override {
+      embeddedTheme = "hyprland_kath";
+    })
+  ];
 }

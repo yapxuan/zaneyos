@@ -8,9 +8,8 @@ let
   inherit (inputs) ragenix mysecrets;
 in
 {
-  imports = [
-    ragenix.nixosModules.default
-  ];
+  imports = [ ragenix.nixosModules.default ];
+  environment.systemPackages = [ inputs.ragenix.packages.${pkgs.system}.default ];
   age = {
     ageBin = "${pkgs.rage}/bin/rage";
     # if you changed this key, you need to regenerate all encrypt files from the decrypt contents!
