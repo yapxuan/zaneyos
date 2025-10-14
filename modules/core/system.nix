@@ -5,31 +5,19 @@ in
 {
   nix = {
     settings = {
-      #download-buffer-size = 250000000;
+      download-buffer-size = 250000000;
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
       substituters = [
-        "https://cache.nixos.org/"
-        "https://chaotic-nyx.cachix.org/"
         "https://nix-community.cachix.org"
         "https://puiyq.cachix.org"
-        "https://hyprland.cachix.org"
-        "https://yazi.cachix.org"
-        "https://nvf.cachix.org"
-        "https://prismlauncher.cachix.org"
       ];
       trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "puiyq.cachix.org-1:x3l4E/KXWxCSELeZlxB52NVOfof240vPjIZUEQp5RHw="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
-        "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
-        "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
       ];
       trusted-users = [
         "root"
@@ -49,10 +37,6 @@ in
     LC_PAPER = "ms_MY.UTF-8";
     LC_TELEPHONE = "ms_MY.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-  environment.variables = {
-    ZANEYOS_VERSION = "2.3.1";
-    ZANEYOS = "true";
   };
   console.keyMap = "${consoleKeyMap}";
   system.stateVersion = "25.05"; # Do not change!

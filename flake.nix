@@ -7,30 +7,32 @@
 
     # Placeholders
     flake-utils.follows = "yazi/flake-utils";
-    flake-compat.follows = "nvf/flake-compat";
-    systems.follows = "hyprland/systems";
     gitignore.follows = "hyprland/pre-commit-hooks/gitignore";
 
     # System configuration
+    systems.url = "github:nix-systems/x86_64-linux";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs.rust-overlay.follows = "rust-overlay";
-      inputs.home-manager.follows = "home-manager";
+      inputs = {
+        rust-overlay.follows = "rust-overlay";
+        home-manager.follows = "home-manager";
+        jovian.follows = "";
+      };
     };
     stylix = {
       url = "github:danth/stylix/master";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
         flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
         # nur.follows = "nur";
       };
     };
@@ -38,15 +40,18 @@
     # Window manager and related
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.inputs.flake-compat.follows = "flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        pre-commit-hooks.inputs.flake-compat.follows = "";
+        systems.follows = "systems";
+      };
     };
     swww = {
       url = "github:LGFae/swww";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         rust-overlay.follows = "rust-overlay";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
       };
     };
 
@@ -79,13 +84,9 @@
       url = "github:mitchellh/zig-overlay";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         flake-utils.follows = "flake-utils";
       };
-    };
-    zon2nix = {
-      url = "github:jcollie/zon2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Applications
@@ -101,8 +102,8 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         zig.follows = "zig";
-        zon2nix.follows = "zon2nix";
-        flake-compat.follows = "flake-compat";
+        zon2nix.follows = "";
+        flake-compat.follows = "";
         flake-utils.follows = "flake-utils";
       };
     };
@@ -123,6 +124,7 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         systems.follows = "systems";
+        darwin.follows = "";
       };
     };
     ragenix = {
