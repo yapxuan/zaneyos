@@ -79,13 +79,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "animeko";
-  version = "5.0.1";
+  version = "5.1.0-alpha02";
 
   src = fetchFromGitHub {
     owner = "open-ani";
     repo = "animeko";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-tsW+3dulwWC45AJQEiXpUywUW82Dj0wkIXrIUZC045k=";
+    hash = "sha256-q9J90GH8cpaoQQQxyDli9FI5jVtWD7yjfGZxnC0Hc6o=";
     fetchSubmodules = true;
   };
 
@@ -99,6 +99,7 @@ stdenv.mkDerivation (finalAttrs: {
     echo "ani.analytics.server=https://us.i.posthog.com" >> local.properties
     echo "ani.analytics.key=phc_7uXkMsKVXfFP9ERNbTT5lAHjVLYAskiRiakjxLROrHw" >> local.properties
     echo "kotlin.native.ignoreDisabledTargets=true" >> local.properties
+    echo "ani.enable.ios=false" >> local.properties
 
     sed -i "s/^version.name=.*/version.name=${finalAttrs.version}/" gradle.properties
     sed -i "s/^package.version=.*/package.version=${finalAttrs.version}/" gradle.properties
@@ -106,19 +107,12 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace gradle/libs.versions.toml \
       --replace-fail 'antlr-kotlin = "1.0.2"' 'antlr-kotlin = "1.0.3"'
 
-    # --- Auto-detect AniCefApp.kt location and patch it
-    FILE=$(find . -type f -path "*/AniCefApp.kt" | head -n 1 || true)
-    if [ -n "$FILE" ]; then
-      echo "Patching CefLog.init call in $FILE"
-      substituteInPlace "$FILE" \
-        --replace-fail "CefLog.init(jcefConfig.cefSettings)" \
-                       "CefLog.init(jcefConfig.cefSettings.log_file, jcefConfig.cefSettings.log_severity)"
-    else
-      echo "Warning: AniCefApp.kt not found, skipping CefLog patch"
-    fi
+    substituteInPlace app/shared/app-platform/src/desktopMain/kotlin/platform/AniCefApp.kt \
+      --replace-fail "CefLog.init(jcefConfig.cefSettings)" \
+                     "CefLog.init(jcefConfig.cefSettings.log_file, jcefConfig.cefSettings.log_severity)"
   '';
 
-  gradleBuildTask = "createReleaseDistributable";
+  gradleBuildTask = ":app:desktop:createReleaseDistributable";
 
   gradleUpdateTask = finalAttrs.gradleBuildTask;
 
