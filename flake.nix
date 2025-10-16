@@ -251,8 +251,8 @@
           shellHook = ''
             export CC=clang
             export CXX=clang++
-            export CGO_CFLAGS="-O2 -march=native -g"
-            export CGO_CXXFLAGS="-O2 -march=native -g"
+            export CGO_CFLAGS="-O2 -march=znver4 -g"
+            export CGO_CXXFLAGS="-O2 -march=znver4 -g"
             export GOAMD64=v4
           '';
         };
