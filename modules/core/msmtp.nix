@@ -12,15 +12,7 @@
     };
 
     accounts = {
-      gmail = {
-        host = "smtp.gmail.com";
-        port = 587;
-        from = "puiyongqing@gmail.com";
-        user = "puiyongqing@gmail.com";
-        passwordeval = "${pkgs.coreutils-full}/bin/cat ${config.age.secrets.gmail_app_password.path}";
-      };
       default = {
-        # Makes gmail the default account
         host = "smtp.gmail.com";
         port = 587;
         from = "puiyongqing@gmail.com";

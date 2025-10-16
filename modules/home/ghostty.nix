@@ -15,7 +15,7 @@
       selection-background = "\#2d3f76";
       selection-foreground = "\#c8d3f5";
       cursor-style = "bar";
-      mouse-hide-while-typing = "true";
+      mouse-hide-while-typing = true;
       #copy-on-select = "clipboard";
       font-family = "BerkeleyMono Nerd Font";
       title = "GhosTTY";

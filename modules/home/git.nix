@@ -70,7 +70,7 @@ in
           smtpserver = "smtp.gmail.com";
           smtpserverport = "587";
           smtpencryption = "tls";
-          smtpuser = "puiyongqing@gmail.com";
+          smtpuser = "${gitEmail}";
         };
       };
       # Optional: FOSS-friendly Git aliases

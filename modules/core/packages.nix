@@ -43,7 +43,7 @@
       LD_LIBRARY_PATH = lib.mkAfter "/opt/rocm/lib";
     };
     sessionVariables = {
-      SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh";
+      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/gcr/ssh";
     };
   };
 
