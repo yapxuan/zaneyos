@@ -261,6 +261,12 @@
             (python3.override {
               enableOptimizations = true;
               reproducibleBuild = false;
+              packageOverrides = _final: prev: {
+                blas = prev.toPythonModule (prev.pkgs.blas.override { blasProvider = prev.pkgs.amd-blis; });
+                lapack = prev.toPythonModule (
+                  prev.pkgs.lapack.override { lapackProvider = prev.pkgs.amd-libflame; }
+                );
+              };
             })
           ];
           shellHook = ''export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH'';
