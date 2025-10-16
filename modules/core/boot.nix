@@ -93,6 +93,12 @@
       ];
     };
 
+    tmp = {
+      useTmpfs = true;
+      tmpfsSize = "50%";
+      tmpfsHugeMemoryPages = "within_size";
+    };
+
     loader.limine = {
       enable = true;
       efiSupport = true;
