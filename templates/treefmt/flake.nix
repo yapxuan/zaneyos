@@ -15,7 +15,7 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       formatter.${system} = treefmt-nix.lib.mkWrapper pkgs ./treefmt.nix;
