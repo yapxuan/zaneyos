@@ -184,7 +184,7 @@
       system = "x86_64-linux";
       host = "nixos";
       username = "puiyq";
-      flake_dir = "/home/${username}/zaneyos";
+      flake_dir = "/home/${username}/nixos-config";
       pkgs = import nixpkgs {
         inherit system;
         config = {
