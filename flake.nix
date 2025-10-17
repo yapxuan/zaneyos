@@ -272,8 +272,8 @@
           shellHook = ''export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH'';
         };
         rust = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-          buildInputs = [
-            pkgs.rustlings
+          buildInputs = with pkgs; [
+            (rustlings.overrideAttrs { postFixup = ''''; })
           ];
           nativeBuildInputs = [
             (pkgs.rust-bin.selectLatestNightlyWith (
