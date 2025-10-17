@@ -48,6 +48,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    (lazyjj.override { jujutsu = pkgs.jujutsu_git; })
     firedragon-catppuccin-bin
     inputs.self.packages.${system}.animeko
     discord

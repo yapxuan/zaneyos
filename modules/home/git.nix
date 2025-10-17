@@ -10,18 +10,27 @@ let
 in
 {
   programs = {
-    # jj
-    #jujutsu = {
-    #  enable = true;
-    # package = pkgs.jujutsu_git;
-    # settings = {
-    # user = {
-    #   email = "${gitEmail}";
-    #   name = "${gitUsername}";
-    # };
-    # ui.editor = "nvim";
-    #  };
-    # };
+    jujutsu = {
+      enable = true;
+      package = pkgs.jujutsu_git;
+      settings = {
+        user = {
+          email = "${gitEmail}";
+          name = "${gitUsername}";
+        };
+        ui = {
+          pager = "delta";
+          editor = "nvim";
+          diff-formatter = ":git";
+        };
+        signing = {
+          behavior = "own";
+          backend = "gpg";
+          key = "CCDCA20D4A5F54D004F088A8272D4F26832F8EF8";
+        };
+        git.sign-on-push = true;
+      };
+    };
     git = {
       enable = true;
       package = pkgs.gitFull;
