@@ -21,6 +21,7 @@ in
         ui = {
           pager = "delta";
           editor = "nvim";
+          default-command = [ "log" ];
           diff-formatter = ":git";
         };
         signing = {
