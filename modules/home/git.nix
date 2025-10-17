@@ -51,8 +51,9 @@ in
         ];
       };
       ignores = [
-        ".envrc"
         ".direnv"
+        ".venv"
+        "target"
         "result"
         ".Trash-1000"
       ];
