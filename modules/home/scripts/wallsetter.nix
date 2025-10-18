@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 pkgs.writeShellScriptBin "wallsetter" ''
@@ -21,9 +20,7 @@ pkgs.writeShellScriptBin "wallsetter" ''
 
   	PREVIOUS=$WALLPAPER
 
-  	${
-     inputs.swww.packages.${pkgs.system}.swww
-   }/bin/swww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
+  	${pkgs.swww}/bin/swww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
   	sleep $TIMEOUT
   done
 ''

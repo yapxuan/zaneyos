@@ -46,14 +46,6 @@
         systems.follows = "systems";
       };
     };
-    swww = {
-      url = "github:LGFae/swww?shallow=1";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        rust-overlay.follows = "rust-overlay";
-        flake-compat.follows = "";
-      };
-    };
 
     # Development tools - Editors and LSP
     nvf = {
